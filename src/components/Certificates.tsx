@@ -1,5 +1,7 @@
 import { Award, Shield, Star, Sparkles, Medal, Trophy } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import AnimatedBackground from './AnimatedBackground';
+import FloatingCode from './FloatingCode';
 
 export default function Certificates() {
   const { t } = useLanguage();
@@ -89,13 +91,21 @@ export default function Certificates() {
   };
 
   return (
-    <section className="min-h-screen pt-32 pb-24 bg-gradient-to-b from-white to-slate-50">
-      <div className="container mx-auto px-6">
+    <section className="min-h-screen pt-32 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute w-96 h-96 top-1/3 right-1/4 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <AnimatedBackground />
+        <FloatingCode />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
             {t('projects.title')}
           </h2>
-          <p className="text-center text-slate-600 mb-12 text-lg">{t('projects.subtitle')}</p>
+          <p className="text-center text-slate-300 mb-12 text-lg">{t('projects.subtitle')}</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.map((cert, index) => {
