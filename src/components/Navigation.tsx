@@ -20,7 +20,7 @@ export default function Navigation() {
     { href: '#home', label: t('nav.home') },
     { href: '#about', label: t('nav.about') },
     { href: '#skills', label: t('nav.skills') },
-    { href: '#projects', label: t('nav.projects') },
+    { href: '#certificates', label: t('nav.certificates') },
     { href: '#experience', label: t('nav.experience') },
     { href: '#contact', label: t('nav.contact') }
   ];

@@ -1,7 +1,7 @@
 import { Award, Shield, Star, Sparkles, Medal, Trophy } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-export default function Projects() {
+export default function Certificates() {
   const { t } = useLanguage();
 
   const certificates = [
@@ -89,7 +89,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-white to-slate-50">
+    <section id="certificates" className="py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">
