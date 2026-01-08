@@ -92,7 +92,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 bg-gradient-to-b from-slate-50 to-white">
+    <section className="min-h-screen pt-32 pb-24 bg-gradient-to-b from-slate-50 to-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">

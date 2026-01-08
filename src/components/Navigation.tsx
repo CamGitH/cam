@@ -1,11 +1,13 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useView } from '../contexts/ViewContext';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const { currentView, setView } = useView();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +19,9 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: '#home', label: t('nav.home') },
-    { href: '#about', label: t('nav.about') },
-    { href: '#skills', label: t('nav.skills') },
-    { href: '#certificates', label: t('nav.certificates') },
-    { href: '#experience', label: t('nav.experience') },
-    { href: '#contact', label: t('nav.contact') }
+    { view: 'home' as const, label: t('nav.home') },
+    { view: 'skills' as const, label: t('nav.skills') },
+    { view: 'certificates' as const, label: t('nav.certificates') }
   ];
 
   return (
@@ -31,21 +30,28 @@ export default function Navigation() {
     }`}>
       <div className="container mx-auto px-8 md:px-12">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" className="text-2xl font-bold text-white">
+          <button
+            onClick={() => setView('home')}
+            className="text-2xl font-bold text-white cursor-pointer"
+          >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
               JD
             </span>
-          </a>
+          </button>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-slate-300 hover:text-white transition-colors duration-300 font-medium"
+              <button
+                key={link.view}
+                onClick={() => setView(link.view)}
+                className={`transition-colors duration-300 font-medium ${
+                  currentView === link.view
+                    ? 'text-white border-b-2 border-cyan-400'
+                    : 'text-slate-300 hover:text-white'
+                }`}
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -61,14 +67,20 @@ export default function Navigation() {
           <div className="md:hidden py-6 border-t border-slate-800">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-slate-300 hover:text-white transition-colors duration-300 font-medium py-2"
+                <button
+                  key={link.view}
+                  onClick={() => {
+                    setView(link.view);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`text-left transition-colors duration-300 font-medium py-2 ${
+                    currentView === link.view
+                      ? 'text-white border-l-2 border-cyan-400 pl-2'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
             </div>
           </div>

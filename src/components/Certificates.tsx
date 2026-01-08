@@ -89,7 +89,7 @@ export default function Certificates() {
   };
 
   return (
-    <section id="certificates" className="py-24 bg-gradient-to-b from-white to-slate-50">
+    <section className="min-h-screen pt-32 pb-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">

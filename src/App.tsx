@@ -5,17 +5,27 @@ import Skills from './components/Skills';
 import Certificates from './components/Certificates';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import { useView } from './contexts/ViewContext';
 
 function App() {
+  const { currentView } = useView();
+
   return (
     <div className="min-h-screen">
       <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Certificates />
-      <Experience />
-      <Contact />
+
+      {currentView === 'home' && (
+        <>
+          <Hero />
+          <About />
+          <Experience />
+          <Contact />
+        </>
+      )}
+
+      {currentView === 'skills' && <Skills />}
+
+      {currentView === 'certificates' && <Certificates />}
     </div>
   );
 }
