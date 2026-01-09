@@ -89,7 +89,6 @@ const translations = {
     'hero.title': 'Científico de la Computación e Ingeniero de Software',
     'hero.description': 'Creando soluciones elegantes a problemas complejos. Apasionado por los algoritmos, sistemas distribuidos y la construcción de aplicaciones escalables que marcan la diferencia.',
     'hero.contact': 'Contáctame',
-    'hero.work': 'Ver Trabajos',
     'about.subtitle': 'Apasionado por crear soluciones innovadoras',
     'about.description': 'Soy un científico de la computación con una profunda pasión por resolver problemas complejos a través de código elegante. Con experiencia en desarrollo full-stack, diseño de algoritmos y sistemas distribuidos, me esfuerzo por construir software que no solo funcione eficientemente sino que también tenga un impacto significativo.',
     'about.interests': 'Más allá de programar, disfruto explorando nuevas tecnologías, contribuyendo a proyectos de código abierto y compartiendo conocimiento con la comunidad de desarrolladores.',
