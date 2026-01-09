@@ -22,8 +22,17 @@ export default function Navigation() {
     { view: 'home' as const, label: t('nav.home') },
     { view: 'skills' as const, label: t('nav.skills') },
     { view: 'certificates' as const, label: t('nav.certificates') },
-    { href: '#contact', label: t('hero.contact') }
   ];
+
+  const handleContactClick = () => {
+    setView('home');
+    setTimeout(() => {
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -54,6 +63,12 @@ export default function Navigation() {
                 {link.label}
               </button>
             ))}
+            <button
+              onClick={handleContactClick}
+              className="transition-colors duration-300 font-medium text-slate-300 hover:text-white"
+            >
+              {t('hero.contact')}
+            </button>
           </div>
 
           <button
@@ -83,6 +98,15 @@ export default function Navigation() {
                   {link.label}
                 </button>
               ))}
+              <button
+                onClick={() => {
+                  handleContactClick();
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-left transition-colors duration-300 font-medium py-2 text-slate-300 hover:text-white"
+              >
+                {t('hero.contact')}
+              </button>
             </div>
           </div>
         )}
