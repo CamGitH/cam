@@ -80,10 +80,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 hover:text-white transition-colors duration-300 animate-bounce">
-        <ArrowDown size={32} />
-      </a>
     </section>
   );
 }
