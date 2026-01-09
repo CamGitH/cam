@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="mb-6 inline-block">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 mx-auto">
               <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-4xl font-bold text-white">
-                JD
+                CO
               </div>
             </div>
           </div>
