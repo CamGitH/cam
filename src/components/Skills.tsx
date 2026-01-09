@@ -138,11 +138,6 @@ export default function Skills() {
                           <p className="text-sm text-slate-500 font-medium italic">{category.className}</p>
                         </div>
                       </div>
-                      <div className="flex flex-col items-end">
-                        <div className={`px-3 py-1 bg-gradient-to-r ${category.color} rounded-full text-white font-bold text-sm shadow-lg`}>
-                          Lvl {category.level}
-                        </div>
-                      </div>
                     </div>
 
                     <div className="mb-4">
