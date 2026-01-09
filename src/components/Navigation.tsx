@@ -22,7 +22,7 @@ export default function Navigation() {
     { view: 'home' as const, label: t('nav.home') },
     { view: 'skills' as const, label: t('nav.skills') },
     { view: 'certificates' as const, label: t('nav.certificates') },
-    { label: t('hero.contact'), href: '#contact' }
+    { href: '#contact', label: t('hero.contact') }
   ];
 
   return (
