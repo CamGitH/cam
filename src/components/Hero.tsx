@@ -44,7 +44,6 @@ export default function Hero() {
           </p>
 
           <div className="flex items-center justify-center gap-3 mb-8">
-            <span className="text-slate-400 text-sm font-medium">I speak</span>
             <div className="flex gap-2">
               <button
                 onClick={() => setLanguage('en')}
