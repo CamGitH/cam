@@ -72,9 +72,6 @@ export default function Hero() {
             <a href="#contact" className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105">
               {t('hero.contact')}
             </a>
-            <a href="#projects" className="border-2 border-slate-600 text-white px-8 py-3 rounded-lg font-medium hover:border-blue-500 hover:bg-slate-800/50 transition-all duration-300">
-              {t('hero.work')}
-            </a>
           </div>
 
           <div className="flex gap-6 justify-center">
