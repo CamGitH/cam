@@ -67,13 +67,6 @@ export default function Hero() {
               </button>
             </div>
           </div>
-
-          <div className="flex gap-4 justify-center mb-12">
-            <a href="#contact" className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105">
-              {t('hero.contact')}
-            </a>
-          </div>
-
           <div className="flex gap-6 justify-center">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
               <Github size={24} />
