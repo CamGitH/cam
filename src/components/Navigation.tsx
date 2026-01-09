@@ -35,7 +35,7 @@ export default function Navigation() {
             className="text-2xl font-bold text-white cursor-pointer"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-              JD
+              CO
             </span>
           </button>
 
