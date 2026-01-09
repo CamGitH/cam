@@ -32,7 +32,7 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
-            John <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Doe</span>
+            Camilo <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Otalora</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-6">
