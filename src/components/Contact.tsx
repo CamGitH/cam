@@ -67,14 +67,6 @@ export default function Contact() {
                   <p className="text-slate-400 mb-4">Find me on</p>
                   <div className="flex gap-4">
                     <a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors duration-300"
-                    >
-                      <Github size={20} className="text-white" />
-                    </a>
-                    <a
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
