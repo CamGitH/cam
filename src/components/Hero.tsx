@@ -68,9 +68,6 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex gap-6 justify-center">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
-              <Github size={24} />
-            </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
               <Linkedin size={24} />
             </a>
