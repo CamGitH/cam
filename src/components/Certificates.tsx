@@ -27,7 +27,7 @@ export default function Certificates() {
       description: t('projects.cert2.description'),
       skills: ['Elastic', 'Enterprise Search', 'Sales Engineering'],
       type: 'accreditation',
-      gradient: 'from-blue-400 via-indigo-500 to-blue-600',
+      gradient: 'from-blue-400 via-sky-500 to-blue-600',
       borderColor: 'border-blue-400',
       glowColor: 'shadow-blue-500/50'
     },
@@ -51,7 +51,7 @@ export default function Certificates() {
       description: t('projects.cert4.description'),
       skills: ['Elastic', 'Security', 'Sales Specialist'],
       type: 'accreditation',
-      gradient: 'from-blue-500 via-blue-600 to-indigo-600',
+      gradient: 'from-blue-500 via-blue-600 to-cyan-600',
       borderColor: 'border-blue-400',
       glowColor: 'shadow-blue-500/50'
     },
@@ -63,9 +63,9 @@ export default function Certificates() {
       description: t('projects.cert5.description'),
       skills: ['Elastic', 'Observability', 'Sales Specialist'],
       type: 'accreditation',
-      gradient: 'from-indigo-400 via-blue-500 to-blue-600',
-      borderColor: 'border-indigo-400',
-      glowColor: 'shadow-indigo-500/50'
+      gradient: 'from-sky-400 via-blue-500 to-blue-600',
+      borderColor: 'border-sky-400',
+      glowColor: 'shadow-sky-500/50'
     },
     {
       icon: Star,
@@ -75,7 +75,7 @@ export default function Certificates() {
       description: t('projects.cert6.description'),
       skills: ['Elastic', 'Enterprise Search', 'Sales Specialist'],
       type: 'accreditation',
-      gradient: 'from-sky-400 via-blue-500 to-indigo-600',
+      gradient: 'from-sky-400 via-blue-500 to-cyan-600',
       borderColor: 'border-sky-400',
       glowColor: 'shadow-sky-500/50'
     },
@@ -162,78 +162,6 @@ export default function Certificates() {
       gradient: 'from-teal-400 via-green-500 to-emerald-600',
       borderColor: 'border-teal-400',
       glowColor: 'shadow-teal-500/50'
-    },
-    {
-      icon: Award,
-      title: t('projects.cert14.title'),
-      issuer: t('projects.cert14.issuer'),
-      date: t('projects.cert14.date'),
-      description: t('projects.cert14.description'),
-      skills: ['Transformers', 'BERT', 'NLP'],
-      type: 'training',
-      gradient: 'from-green-400 via-teal-500 to-cyan-600',
-      borderColor: 'border-green-400',
-      glowColor: 'shadow-green-500/50'
-    },
-    {
-      icon: Medal,
-      title: t('projects.cert15.title'),
-      issuer: t('projects.cert15.issuer'),
-      date: t('projects.cert15.date'),
-      description: t('projects.cert15.description'),
-      skills: ['Seq2Seq', 'Encoder-Decoder', 'Neural Networks'],
-      type: 'training',
-      gradient: 'from-emerald-400 via-green-500 to-teal-600',
-      borderColor: 'border-emerald-400',
-      glowColor: 'shadow-emerald-500/50'
-    },
-    {
-      icon: Trophy,
-      title: t('projects.cert16.title'),
-      issuer: t('projects.cert16.issuer'),
-      date: t('projects.cert16.date'),
-      description: t('projects.cert16.description'),
-      skills: ['Attention Mechanism', 'Deep Learning', 'AI'],
-      type: 'training',
-      gradient: 'from-teal-400 via-emerald-500 to-green-600',
-      borderColor: 'border-teal-400',
-      glowColor: 'shadow-teal-500/50'
-    },
-    {
-      icon: Shield,
-      title: t('projects.cert17.title'),
-      issuer: t('projects.cert17.issuer'),
-      date: t('projects.cert17.date'),
-      description: t('projects.cert17.description'),
-      skills: ['Azure', 'Cloud Fundamentals', 'Microsoft Cloud'],
-      type: 'training',
-      gradient: 'from-green-400 via-emerald-500 to-teal-600',
-      borderColor: 'border-green-400',
-      glowColor: 'shadow-green-500/50'
-    },
-    {
-      icon: Award,
-      title: t('projects.cert18.title'),
-      issuer: t('projects.cert18.issuer'),
-      date: t('projects.cert18.date'),
-      description: t('projects.cert18.description'),
-      skills: ['Project Management', 'Leadership', 'Google'],
-      type: 'training',
-      gradient: 'from-emerald-400 via-teal-500 to-green-600',
-      borderColor: 'border-emerald-400',
-      glowColor: 'shadow-emerald-500/50'
-    },
-    {
-      icon: Medal,
-      title: t('projects.cert19.title'),
-      issuer: t('projects.cert19.issuer'),
-      date: t('projects.cert19.date'),
-      description: t('projects.cert19.description'),
-      skills: ['Scrum', 'Agile', 'Sprint Planning'],
-      type: 'training',
-      gradient: 'from-teal-400 via-green-500 to-emerald-600',
-      borderColor: 'border-teal-400',
-      glowColor: 'shadow-teal-500/50'
     }
   ];
 
@@ -241,7 +169,7 @@ export default function Certificates() {
     const typeConfig = {
       certification: { label: 'CERTIFICATION', color: 'text-amber-400' },
       accreditation: { label: 'ACCREDITATION', color: 'text-blue-400' },
-      training: { label: 'TRAINING', color: 'text-emerald-400' }
+      training: { label: 'COURSE / TRAINING', color: 'text-emerald-400' }
     };
     return typeConfig[type as keyof typeof typeConfig] || typeConfig.training;
   };
