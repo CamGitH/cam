@@ -41,7 +41,7 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <a
-                  href="mailto:john.doe@example.com"
+                  href="mailto:contact@camilotalora.it.com"
                   className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors duration-300 group"
                 >
                   <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors duration-300">
@@ -49,7 +49,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-slate-500">Email</div>
-                    <div className="font-medium">john.doe@example.com</div>
+                    <div className="font-medium">contact@camilotalora.it.com</div>
                   </div>
                 </a>
 
@@ -59,7 +59,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-slate-500">Location</div>
-                    <div className="font-medium">San Francisco, CA</div>
+                    <div className="font-medium">Bogotá, Colombia</div>
                   </div>
                 </div>
 
@@ -67,7 +67,7 @@ export default function Contact() {
                   <p className="text-slate-400 mb-4">Find me on</p>
                   <div className="flex gap-4">
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/camilo-otalora"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors duration-300"

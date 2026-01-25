@@ -11,73 +11,60 @@ export default function Skills() {
       icon: Terminal,
       title: t('skills.other'),
       className: 'Code Wizard',
-      level: 92,
+      level: 95,
       color: 'from-violet-500 to-purple-600',
       borderColor: 'border-violet-400/50',
       glowColor: 'shadow-violet-500/20',
       skills: [
         { name: 'Python', proficiency: 5 },
-        { name: 'TypeScript', proficiency: 5 },
-        { name: 'JavaScript', proficiency: 5 },
-        { name: 'Java', proficiency: 4 },
-        { name: 'C++', proficiency: 4 },
-        { name: 'Go', proficiency: 4 },
-        { name: 'Rust', proficiency: 3 },
+        { name: 'Java', proficiency: 5 },
+        { name: 'Kotlin', proficiency: 4 },
         { name: 'SQL', proficiency: 5 }
-      ]
-    },
-    {
-      icon: Globe,
-      title: t('skills.frontend'),
-      className: 'UI Sorcerer',
-      level: 88,
-      color: 'from-cyan-500 to-blue-600',
-      borderColor: 'border-cyan-400/50',
-      glowColor: 'shadow-cyan-500/20',
-      skills: [
-        { name: 'React', proficiency: 5 },
-        { name: 'Next.js', proficiency: 5 },
-        { name: 'Vue.js', proficiency: 4 },
-        { name: 'Tailwind CSS', proficiency: 5 },
-        { name: 'Redux', proficiency: 4 },
-        { name: 'WebGL', proficiency: 3 },
-        { name: 'Three.js', proficiency: 3 }
-      ]
-    },
-    {
-      icon: Server,
-      title: t('skills.backend'),
-      className: 'System Architect',
-      level: 90,
-      color: 'from-emerald-500 to-green-600',
-      borderColor: 'border-emerald-400/50',
-      glowColor: 'shadow-emerald-500/20',
-      skills: [
-        { name: 'Node.js', proficiency: 5 },
-        { name: 'Django', proficiency: 4 },
-        { name: 'FastAPI', proficiency: 5 },
-        { name: 'Express', proficiency: 5 },
-        { name: 'GraphQL', proficiency: 4 },
-        { name: 'REST APIs', proficiency: 5 },
-        { name: 'Microservices', proficiency: 4 }
       ]
     },
     {
       icon: Database,
       title: t('skills.database'),
       className: 'Data Guardian',
-      level: 85,
+      level: 93,
       color: 'from-orange-500 to-red-600',
       borderColor: 'border-orange-400/50',
       glowColor: 'shadow-orange-500/20',
       skills: [
-        { name: 'PostgreSQL', proficiency: 5 },
-        { name: 'MongoDB', proficiency: 4 },
-        { name: 'Redis', proficiency: 4 },
-        { name: 'Docker', proficiency: 5 },
-        { name: 'Kubernetes', proficiency: 4 },
-        { name: 'AWS', proficiency: 4 },
-        { name: 'CI/CD', proficiency: 5 }
+        { name: 'SQL Databases', proficiency: 5 },
+        { name: 'NO-SQL Databases', proficiency: 5 },
+        { name: 'Elastic', proficiency: 5 },
+        { name: 'Database Management', proficiency: 5 }
+      ]
+    },
+    {
+      icon: Server,
+      title: 'Data Analytics & BI',
+      className: 'Analytics Expert',
+      level: 90,
+      color: 'from-emerald-500 to-green-600',
+      borderColor: 'border-emerald-400/50',
+      glowColor: 'shadow-emerald-500/20',
+      skills: [
+        { name: 'Power BI', proficiency: 5 },
+        { name: 'Advanced Excel', proficiency: 5 },
+        { name: 'Data Analytics', proficiency: 5 },
+        { name: 'Power Automate', proficiency: 4 }
+      ]
+    },
+    {
+      icon: Globe,
+      title: 'Cloud & Tools',
+      className: 'Cloud Architect',
+      level: 88,
+      color: 'from-cyan-500 to-blue-600',
+      borderColor: 'border-cyan-400/50',
+      glowColor: 'shadow-cyan-500/20',
+      skills: [
+        { name: 'Google Cloud', proficiency: 5 },
+        { name: 'Azure', proficiency: 4 },
+        { name: 'Project Management', proficiency: 5 },
+        { name: 'Scrum/Agile', proficiency: 5 }
       ]
     }
   ];

@@ -68,10 +68,10 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex gap-6 justify-center">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
+            <a href="https://www.linkedin.com/in/camilo-otalora" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:john.doe@example.com" className="text-slate-400 hover:text-white transition-colors duration-300">
+            <a href="mailto:contact@camilotalora.it.com" className="text-slate-400 hover:text-white transition-colors duration-300">
               <Mail size={24} />
             </a>
           </div>
