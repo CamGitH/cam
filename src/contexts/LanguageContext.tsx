@@ -275,7 +275,7 @@ const translations = {
     'experience.education.school': 'Universidad de los Andes',
     'experience.education.period': '2017–2024',
     'experience.education.description':
-    '',
+    ' ',
     'contact.title': 'Conectemos',
     'contact.subtitle': 'No dudes en contactarme para colaboraciones o simplemente una charla amistosa',
     'contact.name': 'Tu Nombre',
