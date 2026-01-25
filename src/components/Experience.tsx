@@ -1,9 +1,8 @@
-import { Briefcase, GraduationCap, Download } from 'lucide-react';
+import { Briefcase, GraduationCap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { getSkillStyle, getCertificateStyle } from '../constants/skillCategories';
-import { supabase } from '../lib/supabase';
 
 interface Tag {
   label: string;
@@ -14,60 +13,6 @@ export default function Experience() {
   const { t } = useLanguage();
   const { setView } = useView();
   const [hoveredBadge, setHoveredBadge] = useState<string | null>(null);
-  const [cvUrl, setCvUrl] = useState<string | null>(null);
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  useEffect(() => {
-    fetchCVUrl();
-  }, []);
-
-  const fetchCVUrl = async () => {
-    try {
-      const { data, error } = await supabase.storage
-        .from('cv-files')
-        .list('', {
-          limit: 1,
-          sortBy: { column: 'created_at', order: 'desc' }
-        });
-
-      if (error) {
-        console.error('Error fetching CV:', error);
-        return;
-      }
-
-      if (data && data.length > 0) {
-        const { data: urlData } = supabase.storage
-          .from('cv-files')
-          .getPublicUrl(data[0].name);
-
-        setCvUrl(urlData.publicUrl);
-      }
-    } catch (error) {
-      console.error('Error fetching CV:', error);
-    }
-  };
-
-  const handleDownloadCV = async () => {
-    if (!cvUrl) return;
-
-    setIsDownloading(true);
-    try {
-      const response = await fetch(cvUrl);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'CV.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Error downloading CV:', error);
-    } finally {
-      setIsDownloading(false);
-    }
-  };
 
   const experiences = [
     {
@@ -173,20 +118,7 @@ export default function Experience() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">
             {t('experience.title')}
           </h2>
-          <p className="text-center text-slate-600 mb-8 text-lg">{t('experience.subtitle')}</p>
-
-          {cvUrl && (
-            <div className="flex justify-center mb-12">
-              <button
-                onClick={handleDownloadCV}
-                disabled={isDownloading}
-                className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <Download size={20} />
-                <span>{isDownloading ? 'Downloading...' : t('experience.downloadCV')}</span>
-              </button>
-            </div>
-          )}
+          <p className="text-center text-slate-600 mb-12 text-lg">{t('experience.subtitle')}</p>
 
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500"></div>
