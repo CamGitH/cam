@@ -5,7 +5,13 @@ import {
   Code2,
   Server,
   GitBranch,
-  Zap
+  Zap,
+  Shield,
+  Star,
+  Award,
+  Trophy,
+  Sparkles,
+  Medal
 } from 'lucide-react';
 
 export interface SkillCategory {
@@ -162,5 +168,45 @@ export function getSkillStyle(skillName: string) {
   return skillMap.get(normalizedName) || {
     icon: Code2,
     color: 'from-slate-500 to-slate-600'
+  };
+}
+
+// Certificate mapping based on the Certificates component
+export const certificateMap = new Map<string, { icon: typeof Code2; color: string }>([
+  // Elastic Accreditations (Blue gradients with Shield/Star/Award icons)
+  ['elastic sales engineer', { icon: Shield, color: 'from-blue-400 to-blue-600' }],
+  ['elastic sales specialist', { icon: Star, color: 'from-blue-400 to-blue-600' }],
+  ['elastic accredited sales professional', { icon: Award, color: 'from-blue-400 to-cyan-600' }],
+
+  // Microsoft Certification (Amber/Gold gradient with Trophy icon)
+  ['power bi', { icon: Trophy, color: 'from-amber-400 to-orange-500' }],
+  ['microsoft certified: power bi data analyst', { icon: Trophy, color: 'from-amber-400 to-orange-500' }],
+
+  // Google/AI Training Courses (Green/Teal gradients with Sparkles/Shield/Medal/Award icons)
+  ['intro to duet ai in google workspace', { icon: Sparkles, color: 'from-emerald-400 to-teal-600' }],
+  ['intro to llm', { icon: Sparkles, color: 'from-teal-400 to-green-600' }],
+  ['intro to large language models', { icon: Sparkles, color: 'from-teal-400 to-green-600' }],
+  ['intro to responsible ai', { icon: Shield, color: 'from-green-400 to-teal-600' }],
+  ['applying ai principles with google cloud', { icon: Medal, color: 'from-emerald-400 to-cyan-600' }],
+  ['prompt design in vertex ai', { icon: Sparkles, color: 'from-teal-400 to-emerald-600' }],
+  ['transformer & bert', { icon: Award, color: 'from-green-400 to-cyan-600' }],
+  ['transformers & bert', { icon: Award, color: 'from-green-400 to-cyan-600' }],
+
+  // Azure Training (Green gradient with Shield icon)
+  ['azure fundamentals', { icon: Shield, color: 'from-green-400 to-teal-600' }],
+
+  // Project Management Training (Green gradient with Award icon)
+  ['google project management', { icon: Award, color: 'from-emerald-400 to-green-600' }],
+
+  // Scrum/Agile Training (Green gradient with Medal icon)
+  ['scrum', { icon: Medal, color: 'from-teal-400 to-emerald-600' }],
+  ['professional scrum master', { icon: Medal, color: 'from-teal-400 to-emerald-600' }]
+]);
+
+export function getCertificateStyle(certName: string) {
+  const normalizedName = certName.toLowerCase();
+  return certificateMap.get(normalizedName) || {
+    icon: Award,
+    color: 'from-amber-500 to-orange-600'
   };
 }

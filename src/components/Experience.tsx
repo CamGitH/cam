@@ -1,8 +1,8 @@
-import { Briefcase, GraduationCap, Award } from 'lucide-react';
+import { Briefcase, GraduationCap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
 import { useState } from 'react';
-import { getSkillStyle } from '../constants/skillCategories';
+import { getSkillStyle, getCertificateStyle } from '../constants/skillCategories';
 
 interface Tag {
   label: string;
@@ -140,8 +140,9 @@ export default function Experience() {
                       let bgColor;
 
                       if (tag.type === 'certificate') {
-                        Icon = Award;
-                        bgColor = 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30';
+                        const certStyle = getCertificateStyle(tag.label);
+                        Icon = certStyle.icon;
+                        bgColor = `bg-gradient-to-r ${certStyle.color} shadow-lg`;
                       } else {
                         const skillStyle = getSkillStyle(tag.label);
                         Icon = skillStyle.icon;
