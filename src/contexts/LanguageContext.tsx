@@ -139,7 +139,7 @@ const translations = {
     'experience.education.school': 'Universidad de los Andes',
     'experience.education.period': '2017–2024',
     'experience.education.description':
-    '',
+    ' ',
     'contact.title': "Let's Connect",
     'contact.subtitle': 'Feel free to reach out for collaborations or just a friendly chat',
     'contact.name': 'Your Name',
