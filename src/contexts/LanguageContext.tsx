@@ -275,8 +275,7 @@ const translations = {
     'experience.education.school': 'Universidad de los Andes',
     'experience.education.period': '2017–2024',
     'experience.education.description':
-    'Título de Ingeniería de Sistemas y Computación. Formación integral en desarrollo de software, sistemas de bases de datos, algoritmos y estructuras de datos. Fuerte enfoque en análisis de datos, arquitectura de sistemas y desarrollo full-stack, con experiencia práctica en la construcción de sistemas escalables y orientados a datos.',
-
+    '',
     'contact.title': 'Conectemos',
     'contact.subtitle': 'No dudes en contactarme para colaboraciones o simplemente una charla amistosa',
     'contact.name': 'Tu Nombre',
