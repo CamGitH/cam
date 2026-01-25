@@ -69,24 +69,70 @@ export default function Experience() {
       ]
     },
     {
-      type: 'education',
+      type: 'work',
       title: t('experience.intern.title'),
       company: t('experience.intern.company'),
       period: t('experience.intern.period'),
       description: t('experience.intern.description'),
       achievements: [
         {
-          icon: Trophy,
-          label: 'Quest Begun',
-          description: 'Started the coding journey',
-          color: 'from-orange-400 to-orange-600',
-          tier: 'bronze' as const
+          icon: Zap,
+          label: 'NLP Expert',
+          description: 'Advanced natural language processing solutions',
+          color: 'from-cyan-400 to-cyan-600',
+          tier: 'silver' as const
+        },
+        {
+          icon: Target,
+          label: 'Search Master',
+          description: 'Elasticsearch & KNN implementations',
+          color: 'from-purple-400 to-purple-600',
+          tier: 'silver' as const
+        }
+      ]
+    },
+    {
+      type: 'work',
+      title: t('experience.pacific.title'),
+      company: t('experience.pacific.company'),
+      period: t('experience.pacific.period'),
+      description: t('experience.pacific.description'),
+      achievements: [
+        {
+          icon: Award,
+          label: 'Process Optimizer',
+          description: 'Reduced processing time by 99%',
+          color: 'from-emerald-400 to-emerald-600',
+          tier: 'silver' as const
         },
         {
           icon: Users,
-          label: 'Quick Learner',
-          description: 'Rapidly adapted to new technologies',
-          color: 'from-teal-400 to-teal-600',
+          label: 'Quality Champion',
+          description: 'Achieved 90% data quality score',
+          color: 'from-blue-400 to-blue-600',
+          tier: 'bronze' as const
+        }
+      ]
+    },
+    {
+      type: 'work',
+      title: t('experience.cofounder.title'),
+      company: t('experience.cofounder.company'),
+      period: t('experience.cofounder.period'),
+      description: t('experience.cofounder.description'),
+      achievements: [
+        {
+          icon: Crown,
+          label: 'Entrepreneur',
+          description: 'Co-founded startup and led development',
+          color: 'from-amber-400 to-yellow-600',
+          tier: 'gold' as const
+        },
+        {
+          icon: Trophy,
+          label: 'Mobile Developer',
+          description: 'Built mobile apps with Kotlin & Firebase',
+          color: 'from-orange-400 to-orange-600',
           tier: 'bronze' as const
         }
       ]
