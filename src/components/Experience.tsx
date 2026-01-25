@@ -1,7 +1,8 @@
-import { Briefcase, GraduationCap, Award, Zap } from 'lucide-react';
+import { Briefcase, GraduationCap, Award } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
 import { useState } from 'react';
+import { getSkillStyle } from '../constants/skillCategories';
 
 interface Tag {
   label: string;
@@ -24,8 +25,11 @@ export default function Experience() {
         { label: 'Power BI', type: 'certificate' as const },
         { label: 'Python', type: 'skill' as const },
         { label: 'SQL', type: 'skill' as const },
+        { label: 'Power BI', type: 'skill' as const },
         { label: 'Power Automate', type: 'skill' as const },
-        { label: 'Database Management', type: 'skill' as const }
+        { label: 'Database Management', type: 'skill' as const },
+        { label: 'Data Modeling', type: 'skill' as const },
+        { label: 'ETL', type: 'skill' as const }
       ]
     },
     {
@@ -39,8 +43,11 @@ export default function Experience() {
         { label: 'Elastic Sales Specialist', type: 'certificate' as const },
         { label: 'Scrum', type: 'certificate' as const },
         { label: 'Python', type: 'skill' as const },
-        { label: 'Elastic', type: 'skill' as const },
-        { label: 'Data Analytics', type: 'skill' as const }
+        { label: 'Elasticsearch', type: 'skill' as const },
+        { label: 'Data Analytics', type: 'skill' as const },
+        { label: 'Docker', type: 'skill' as const },
+        { label: 'Git', type: 'skill' as const },
+        { label: 'Agile', type: 'skill' as const }
       ]
     },
     {
@@ -54,7 +61,9 @@ export default function Experience() {
         { label: 'Transformer & BERT', type: 'certificate' as const },
         { label: 'Python', type: 'skill' as const },
         { label: 'Java', type: 'skill' as const },
-        { label: 'Elastic', type: 'skill' as const }
+        { label: 'Elasticsearch', type: 'skill' as const },
+        { label: 'APIs & Integrations', type: 'skill' as const },
+        { label: 'Git', type: 'skill' as const }
       ]
     },
     {
@@ -65,8 +74,11 @@ export default function Experience() {
       description: t('experience.pacific.description'),
       tags: [
         { label: 'Azure Fundamentals', type: 'certificate' as const },
+        { label: 'Azure', type: 'skill' as const },
         { label: 'Power Automate', type: 'skill' as const },
-        { label: 'Data Analytics', type: 'skill' as const }
+        { label: 'Power BI', type: 'skill' as const },
+        { label: 'Data Analytics', type: 'skill' as const },
+        { label: 'Advanced Excel', type: 'skill' as const }
       ]
     },
     {
@@ -78,7 +90,9 @@ export default function Experience() {
       tags: [
         { label: 'Google Project Management', type: 'certificate' as const },
         { label: 'Kotlin', type: 'skill' as const },
-        { label: 'Google Cloud', type: 'skill' as const }
+        { label: 'Google Cloud', type: 'skill' as const },
+        { label: 'Project Coordination', type: 'skill' as const },
+        { label: 'Agile', type: 'skill' as const }
       ]
     }
   ];
@@ -120,11 +134,19 @@ export default function Experience() {
 
                   <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100">
                     {exp.tags.map((tag, tagIndex) => {
-                      const Icon = tag.type === 'certificate' ? Award : Zap;
                       const tagId = `${index}-${tagIndex}`;
-                      const bgColor = tag.type === 'certificate'
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30'
-                        : 'bg-gradient-to-r from-blue-500 to-cyan-600 shadow-blue-500/30';
+
+                      let Icon;
+                      let bgColor;
+
+                      if (tag.type === 'certificate') {
+                        Icon = Award;
+                        bgColor = 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30';
+                      } else {
+                        const skillStyle = getSkillStyle(tag.label);
+                        Icon = skillStyle.icon;
+                        bgColor = `bg-gradient-to-r ${skillStyle.color} shadow-lg`;
+                      }
 
                       const handleTagClick = () => {
                         setView(tag.type === 'certificate' ? 'certificates' : 'skills');
@@ -139,7 +161,7 @@ export default function Experience() {
                         >
                           <div
                             onClick={handleTagClick}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 ${bgColor} rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer`}
+                            className={`flex items-center gap-1.5 px-3 py-1.5 ${bgColor} rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer`}
                           >
                             <Icon className="text-white" size={14} />
                             <span className="text-white font-semibold text-xs">{tag.label}</span>
