@@ -139,7 +139,7 @@ const translations = {
     'experience.education.school': 'Universidad de los Andes',
     'experience.education.period': '2017–2024',
     'experience.education.description':
-    'Bachelor of Engineering in Systems and Computing (Computer Science). Comprehensive education in software development, database systems, algorithms, and data structures. Strong focus on data analytics, system architecture, and full-stack development, with practical experience in building scalable and data-driven systems.',
+    '',
     'contact.title': "Let's Connect",
     'contact.subtitle': 'Feel free to reach out for collaborations or just a friendly chat',
     'contact.name': 'Your Name',
