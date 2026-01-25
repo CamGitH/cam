@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-type View = 'home' | 'skills' | 'certificates';
+type View = 'home' | 'skills' | 'certificates' | 'cv';
 
 interface ViewContextType {
   currentView: View;
