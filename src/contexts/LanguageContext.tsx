@@ -22,7 +22,7 @@ const translations = {
     'hero.description': 'Enthusiastic about solving problems obtaining the best results, motivated by new challenges, learning and fast adapting, excellent teamwork skills with multiple stakeholders. Providing customized and helpful support experience, becoming a trusted advisor.',
     'hero.contact': 'Get in Touch',
     'about.title': 'About Me',
-    'about.subtitle': 'Systems & computing engineer, bilingual professional',
+    'about.subtitle': 'Systems & computing engineer',
     'about.description': "Systems & computing engineer with deep expertise in database management, data analytics, and full-stack development. Specialized in Python, Java, Elastic, and cloud technologies (Google Cloud, Azure). Strong background in project management, process optimization, and delivering data-driven solutions at scale.",
     'about.interests': 'Passionate about leveraging technology to solve complex problems, optimizing workflows, and mentoring teams. Experience spans from NLP solutions and Elastic implementations to cloud migrations and automated reporting systems.',
     'skills.title': 'Technical Skills',
