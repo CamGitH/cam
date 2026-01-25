@@ -6,164 +6,164 @@ import FloatingCode from './FloatingCode';
 export default function Certificates() {
   const { t } = useLanguage();
 
-  const certificates = [
-    {
-      icon: Shield,
-      title: t('projects.cert1.title'),
-      issuer: t('projects.cert1.issuer'),
-      date: t('projects.cert1.date'),
-      description: t('projects.cert1.description'),
-      skills: ['Elastic', 'Security', 'Sales Engineering'],
-      type: 'accreditation',
-      gradient: 'from-blue-400 via-cyan-500 to-blue-600',
-      borderColor: 'border-blue-400',
-      glowColor: 'shadow-blue-500/50'
-    },
-    {
-      icon: Shield,
-      title: t('projects.cert2.title'),
-      issuer: t('projects.cert2.issuer'),
-      date: t('projects.cert2.date'),
-      description: t('projects.cert2.description'),
-      skills: ['Elastic', 'Enterprise Search', 'Sales Engineering'],
-      type: 'accreditation',
-      gradient: 'from-blue-400 via-sky-500 to-blue-600',
-      borderColor: 'border-blue-400',
-      glowColor: 'shadow-blue-500/50'
-    },
-    {
-      icon: Shield,
-      title: t('projects.cert3.title'),
-      issuer: t('projects.cert3.issuer'),
-      date: t('projects.cert3.date'),
-      description: t('projects.cert3.description'),
-      skills: ['Elastic', 'Observability', 'Sales Engineering'],
-      type: 'accreditation',
-      gradient: 'from-cyan-400 via-blue-500 to-blue-600',
-      borderColor: 'border-cyan-400',
-      glowColor: 'shadow-cyan-500/50'
-    },
-    {
-      icon: Star,
-      title: t('projects.cert4.title'),
-      issuer: t('projects.cert4.issuer'),
-      date: t('projects.cert4.date'),
-      description: t('projects.cert4.description'),
-      skills: ['Elastic', 'Security', 'Sales Specialist'],
-      type: 'accreditation',
-      gradient: 'from-blue-500 via-blue-600 to-cyan-600',
-      borderColor: 'border-blue-400',
-      glowColor: 'shadow-blue-500/50'
-    },
-    {
-      icon: Star,
-      title: t('projects.cert5.title'),
-      issuer: t('projects.cert5.issuer'),
-      date: t('projects.cert5.date'),
-      description: t('projects.cert5.description'),
-      skills: ['Elastic', 'Observability', 'Sales Specialist'],
-      type: 'accreditation',
-      gradient: 'from-sky-400 via-blue-500 to-blue-600',
-      borderColor: 'border-sky-400',
-      glowColor: 'shadow-sky-500/50'
-    },
-    {
-      icon: Star,
-      title: t('projects.cert6.title'),
-      issuer: t('projects.cert6.issuer'),
-      date: t('projects.cert6.date'),
-      description: t('projects.cert6.description'),
-      skills: ['Elastic', 'Enterprise Search', 'Sales Specialist'],
-      type: 'accreditation',
-      gradient: 'from-sky-400 via-blue-500 to-cyan-600',
-      borderColor: 'border-sky-400',
-      glowColor: 'shadow-sky-500/50'
-    },
-    {
-      icon: Award,
-      title: t('projects.cert7.title'),
-      issuer: t('projects.cert7.issuer'),
-      date: t('projects.cert7.date'),
-      description: t('projects.cert7.description'),
-      skills: ['Elastic', 'Sales Professional', 'Solutions'],
-      type: 'accreditation',
-      gradient: 'from-blue-400 via-blue-500 to-cyan-600',
-      borderColor: 'border-blue-400',
-      glowColor: 'shadow-blue-500/50'
-    },
-    {
-      icon: Trophy,
-      title: t('projects.cert8.title'),
-      issuer: t('projects.cert8.issuer'),
-      date: t('projects.cert8.date'),
-      description: t('projects.cert8.description'),
-      skills: ['Power BI', 'Data Analytics', 'Microsoft'],
-      type: 'certification',
-      gradient: 'from-amber-400 via-yellow-500 to-orange-500',
-      borderColor: 'border-amber-400',
-      glowColor: 'shadow-amber-500/50'
-    },
-    {
-      icon: Sparkles,
-      title: t('projects.cert9.title'),
-      issuer: t('projects.cert9.issuer'),
-      date: t('projects.cert9.date'),
-      description: t('projects.cert9.description'),
-      skills: ['Duet AI', 'Google Workspace', 'AI Tools'],
-      type: 'training',
-      gradient: 'from-emerald-400 via-green-500 to-teal-600',
-      borderColor: 'border-emerald-400',
-      glowColor: 'shadow-emerald-500/50'
-    },
-    {
-      icon: Sparkles,
-      title: t('projects.cert10.title'),
-      issuer: t('projects.cert10.issuer'),
-      date: t('projects.cert10.date'),
-      description: t('projects.cert10.description'),
-      skills: ['LLMs', 'AI Fundamentals', 'Machine Learning'],
-      type: 'training',
-      gradient: 'from-teal-400 via-emerald-500 to-green-600',
-      borderColor: 'border-teal-400',
-      glowColor: 'shadow-teal-500/50'
-    },
-    {
-      icon: Shield,
-      title: t('projects.cert11.title'),
-      issuer: t('projects.cert11.issuer'),
-      date: t('projects.cert11.date'),
-      description: t('projects.cert11.description'),
-      skills: ['Responsible AI', 'AI Ethics', 'Governance'],
-      type: 'training',
-      gradient: 'from-green-400 via-emerald-500 to-teal-600',
-      borderColor: 'border-green-400',
-      glowColor: 'shadow-green-500/50'
-    },
-    {
-      icon: Medal,
-      title: t('projects.cert12.title'),
-      issuer: t('projects.cert12.issuer'),
-      date: t('projects.cert12.date'),
-      description: t('projects.cert12.description'),
-      skills: ['AI Principles', 'Google Cloud', 'Ethics'],
-      type: 'training',
-      gradient: 'from-emerald-400 via-teal-500 to-cyan-600',
-      borderColor: 'border-emerald-400',
-      glowColor: 'shadow-emerald-500/50'
-    },
-    {
-      icon: Sparkles,
-      title: t('projects.cert13.title'),
-      issuer: t('projects.cert13.issuer'),
-      date: t('projects.cert13.date'),
-      description: t('projects.cert13.description'),
-      skills: ['Prompt Design', 'Vertex AI', 'Generative AI'],
-      type: 'training',
-      gradient: 'from-teal-400 via-green-500 to-emerald-600',
-      borderColor: 'border-teal-400',
-      glowColor: 'shadow-teal-500/50'
-    }
-  ];
+const certificates = [
+  {
+    icon: Shield,
+    title: t('projects.cert1.title'),
+    issuer: t('projects.cert1.issuer'),
+    date: t('projects.cert1.date'),
+    description: t('projects.cert1.description'),
+    skills: ['Elastic Security', 'Threat Detection', 'Sales Engineering'],
+    type: 'accreditation',
+    gradient: 'from-blue-400 via-cyan-500 to-blue-600',
+    borderColor: 'border-blue-400',
+    glowColor: 'shadow-blue-500/50'
+  },
+  {
+    icon: Shield,
+    title: t('projects.cert2.title'),
+    issuer: t('projects.cert2.issuer'),
+    date: t('projects.cert2.date'),
+    description: t('projects.cert2.description'),
+    skills: ['Enterprise Search', 'Elastic Stack', 'Solution Design'],
+    type: 'accreditation',
+    gradient: 'from-blue-400 via-sky-500 to-blue-600',
+    borderColor: 'border-blue-400',
+    glowColor: 'shadow-blue-500/50'
+  },
+  {
+    icon: Shield,
+    title: t('projects.cert3.title'),
+    issuer: t('projects.cert3.issuer'),
+    date: t('projects.cert3.date'),
+    description: t('projects.cert3.description'),
+    skills: ['Observability', 'Logs & Metrics', 'APM'],
+    type: 'accreditation',
+    gradient: 'from-cyan-400 via-blue-500 to-blue-600',
+    borderColor: 'border-cyan-400',
+    glowColor: 'shadow-cyan-500/50'
+  },
+  {
+    icon: Star,
+    title: t('projects.cert4.title'),
+    issuer: t('projects.cert4.issuer'),
+    date: t('projects.cert4.date'),
+    description: t('projects.cert4.description'),
+    skills: ['Elastic Security', 'Customer Enablement', 'Pre-Sales'],
+    type: 'accreditation',
+    gradient: 'from-blue-500 via-blue-600 to-cyan-600',
+    borderColor: 'border-blue-400',
+    glowColor: 'shadow-blue-500/50'
+  },
+  {
+    icon: Star,
+    title: t('projects.cert5.title'),
+    issuer: t('projects.cert5.issuer'),
+    date: t('projects.cert5.date'),
+    description: t('projects.cert5.description'),
+    skills: ['Observability', 'Monitoring', 'Sales Specialist'],
+    type: 'accreditation',
+    gradient: 'from-sky-400 via-blue-500 to-blue-600',
+    borderColor: 'border-sky-400',
+    glowColor: 'shadow-sky-500/50'
+  },
+  {
+    icon: Star,
+    title: t('projects.cert6.title'),
+    issuer: t('projects.cert6.issuer'),
+    date: t('projects.cert6.date'),
+    description: t('projects.cert6.description'),
+    skills: ['Enterprise Search', 'Business Search', 'Elastic'],
+    type: 'accreditation',
+    gradient: 'from-sky-400 via-blue-500 to-cyan-600',
+    borderColor: 'border-sky-400',
+    glowColor: 'shadow-sky-500/50'
+  },
+  {
+    icon: Award,
+    title: t('projects.cert7.title'),
+    issuer: t('projects.cert7.issuer'),
+    date: t('projects.cert7.date'),
+    description: t('projects.cert7.description'),
+    skills: ['Elastic Stack', 'Solution Positioning', 'Sales Professional'],
+    type: 'accreditation',
+    gradient: 'from-blue-400 via-blue-500 to-cyan-600',
+    borderColor: 'border-blue-400',
+    glowColor: 'shadow-blue-500/50'
+  },
+  {
+    icon: Trophy,
+    title: t('projects.cert8.title'),
+    issuer: t('projects.cert8.issuer'),
+    date: t('projects.cert8.date'),
+    description: t('projects.cert8.description'),
+    skills: ['Power BI', 'Data Modeling', 'Data Visualization'],
+    type: 'certification',
+    gradient: 'from-amber-400 via-yellow-500 to-orange-500',
+    borderColor: 'border-amber-400',
+    glowColor: 'shadow-amber-500/50'
+  },
+  {
+    icon: Sparkles,
+    title: t('projects.cert9.title'),
+    issuer: t('projects.cert9.issuer'),
+    date: t('projects.cert9.date'),
+    description: t('projects.cert9.description'),
+    skills: ['Duet AI', 'Google Workspace', 'Productivity'],
+    type: 'training',
+    gradient: 'from-emerald-400 via-green-500 to-teal-600',
+    borderColor: 'border-emerald-400',
+    glowColor: 'shadow-emerald-500/50'
+  },
+  {
+    icon: Sparkles,
+    title: t('projects.cert10.title'),
+    issuer: t('projects.cert10.issuer'),
+    date: t('projects.cert10.date'),
+    description: t('projects.cert10.description'),
+    skills: ['LLMs', 'AI Fundamentals', 'NLP'],
+    type: 'training',
+    gradient: 'from-teal-400 via-emerald-500 to-green-600',
+    borderColor: 'border-teal-400',
+    glowColor: 'shadow-teal-500/50'
+  },
+  {
+    icon: Shield,
+    title: t('projects.cert11.title'),
+    issuer: t('projects.cert11.issuer'),
+    date: t('projects.cert11.date'),
+    description: t('projects.cert11.description'),
+    skills: ['Responsible AI', 'Ethics', 'Governance'],
+    type: 'training',
+    gradient: 'from-green-400 via-emerald-500 to-teal-600',
+    borderColor: 'border-green-400',
+    glowColor: 'shadow-green-500/50'
+  },
+  {
+    icon: Medal,
+    title: t('projects.cert12.title'),
+    issuer: t('projects.cert12.issuer'),
+    date: t('projects.cert12.date'),
+    description: t('projects.cert12.description'),
+    skills: ['Google Cloud', 'AI Principles', 'Responsible AI'],
+    type: 'training',
+    gradient: 'from-emerald-400 via-teal-500 to-cyan-600',
+    borderColor: 'border-emerald-400',
+    glowColor: 'shadow-emerald-500/50'
+  },
+  {
+    icon: Sparkles,
+    title: t('projects.cert13.title'),
+    issuer: t('projects.cert13.issuer'),
+    date: t('projects.cert13.date'),
+    description: t('projects.cert13.description'),
+    skills: ['Prompt Engineering', 'Vertex AI', 'Generative AI'],
+    type: 'training',
+    gradient: 'from-teal-400 via-green-500 to-emerald-600',
+    borderColor: 'border-teal-400',
+    glowColor: 'shadow-teal-500/50'
+  }
+];
 
   const getCredentialTypeLabel = (type: string) => {
     const typeConfig = {
