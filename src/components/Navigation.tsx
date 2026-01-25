@@ -34,6 +34,16 @@ export default function Navigation() {
     }, 100);
   };
 
+  const handleCVClick = () => {
+    setView('home');
+    setTimeout(() => {
+      const experienceSection = document.querySelector('#experience');
+      if (experienceSection) {
+        experienceSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
@@ -63,6 +73,12 @@ export default function Navigation() {
                 {link.label}
               </button>
             ))}
+            <button
+              onClick={handleCVClick}
+              className="transition-colors duration-300 font-medium text-slate-300 hover:text-white"
+            >
+              {t('nav.cv')}
+            </button>
             <button
               onClick={handleContactClick}
               className="transition-colors duration-300 font-medium text-slate-300 hover:text-white"
@@ -98,6 +114,15 @@ export default function Navigation() {
                   {link.label}
                 </button>
               ))}
+              <button
+                onClick={() => {
+                  handleCVClick();
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-left transition-colors duration-300 font-medium py-2 text-slate-300 hover:text-white"
+              >
+                {t('nav.cv')}
+              </button>
               <button
                 onClick={() => {
                   handleContactClick();
