@@ -89,7 +89,7 @@ const translations = {
     'hero.title': 'Ingeniero de Sistemas y Computación',
     'hero.description': 'Entusiasta en resolver problemas obteniendo los mejores resultados, motivado por nuevos desafíos, aprendizaje y adaptación rápida, excelentes habilidades de trabajo en equipo con múltiples stakeholders. Brindando experiencia de soporte personalizada y útil, convirtiéndome en un asesor de confianza.',
     'hero.contact': 'Contáctame',
-    'about.subtitle': 'Ingeniero de sistemas y computación, profesional bilingüe',
+    'about.subtitle': 'Ingeniero de sistemas y computación',
     'about.description': 'Ingeniero de sistemas y computación con amplia experiencia en gestión de bases de datos, análisis de datos y desarrollo full-stack. Especializado en Python, Java, Elastic y tecnologías cloud (Google Cloud, Azure). Sólida experiencia en gestión de proyectos, optimización de procesos y entrega de soluciones basadas en datos a escala.',
     'about.interests': 'Apasionado por aprovechar la tecnología para resolver problemas complejos, optimizar flujos de trabajo y mentorear equipos. La experiencia abarca desde soluciones NLP e implementaciones Elastic hasta migraciones cloud y sistemas de reportes automatizados.',
     'skills.title': 'Habilidades Técnicas',
