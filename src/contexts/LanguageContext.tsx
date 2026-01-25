@@ -135,7 +135,7 @@ const translations = {
     'experience.cofounder.company': 'Mobile App Startup',
     'experience.cofounder.period': '2020-2021',
     'experience.cofounder.description': 'Planned and developed mobile apps with Android Studio (Kotlin). Organized and integrated Firebase-Cloud Firestore DB. Implemented APIs optimizing security and payments collection. Created solutions to unfamiliar problems fulfilling all project expectations.',
-    'experience.education.degree': 'Systems & Computing Engineering',
+    'experience.education.degree': 'Systems & Computing Engineering (Computer Science)',
     'experience.education.school': 'Universidad de los Andes',
     'experience.education.period': '2017-2024',
     'experience.education.description': 'Bachelor of Engineering in Systems and Computing. Comprehensive education in software development, database systems, algorithms, data structures, and computer science fundamentals. Focus on data analytics, system architecture, and full-stack development.',
