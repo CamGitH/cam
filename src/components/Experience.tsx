@@ -1,5 +1,6 @@
 import { Briefcase, GraduationCap, Award, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useView } from '../contexts/ViewContext';
 import { useState } from 'react';
 
 interface Tag {
@@ -9,6 +10,7 @@ interface Tag {
 
 export default function Experience() {
   const { t } = useLanguage();
+  const { setView } = useView();
   const [hoveredBadge, setHoveredBadge] = useState<string | null>(null);
 
   const experiences = [
@@ -124,6 +126,10 @@ export default function Experience() {
                         ? 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30'
                         : 'bg-gradient-to-r from-blue-500 to-cyan-600 shadow-blue-500/30';
 
+                      const handleTagClick = () => {
+                        setView(tag.type === 'certificate' ? 'certificates' : 'skills');
+                      };
+
                       return (
                         <div
                           key={tagIndex}
@@ -132,15 +138,16 @@ export default function Experience() {
                           onMouseLeave={() => setHoveredBadge(null)}
                         >
                           <div
-                            className={`flex items-center gap-1.5 px-3 py-1.5 ${bgColor} rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-default`}
+                            onClick={handleTagClick}
+                            className={`flex items-center gap-1.5 px-3 py-1.5 ${bgColor} rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer`}
                           >
                             <Icon className="text-white" size={14} />
                             <span className="text-white font-semibold text-xs">{tag.label}</span>
                           </div>
 
                           {hoveredBadge === tagId && (
-                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg whitespace-nowrap shadow-xl">
-                              {tag.type === 'certificate' ? 'Certificate' : 'Skill'}
+                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg whitespace-nowrap shadow-xl pointer-events-none">
+                              {tag.type === 'certificate' ? 'View Certificate' : 'View Skill'}
                               <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
                                 <div className="border-4 border-transparent border-t-slate-900"></div>
                               </div>
