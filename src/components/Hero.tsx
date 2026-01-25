@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="mb-6 inline-block">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 mx-auto">
               <img
-                src="/public/c.jpg"
+                src="/c.jpg"
                 alt="Camilo Otalora"
                 className="w-full h-full rounded-full object-cover"
                 onError={(e) => {
