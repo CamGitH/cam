@@ -6,69 +6,69 @@ import FloatingCode from './FloatingCode';
 export default function Skills() {
   const { t } = useLanguage();
 
-  const skillCategories = [
-    {
-      icon: Terminal,
-      title: t('skills.other'),
-      className: 'Code Wizard',
-      level: 95,
-      color: 'from-violet-500 to-purple-600',
-      borderColor: 'border-violet-400/50',
-      glowColor: 'shadow-violet-500/20',
-      skills: [
-        { name: 'Python', proficiency: 5 },
-        { name: 'Java', proficiency: 5 },
-        { name: 'Kotlin', proficiency: 4 },
-        { name: 'SQL', proficiency: 5 }
-      ]
-    },
-    {
-      icon: Database,
-      title: t('skills.database'),
-      className: 'Data Guardian',
-      level: 93,
-      color: 'from-orange-500 to-red-600',
-      borderColor: 'border-orange-400/50',
-      glowColor: 'shadow-orange-500/20',
-      skills: [
-        { name: 'SQL Databases', proficiency: 5 },
-        { name: 'NO-SQL Databases', proficiency: 5 },
-        { name: 'Elastic', proficiency: 5 },
-        { name: 'Database Management', proficiency: 5 }
-      ]
-    },
-    {
-      icon: Server,
-      title: 'Data Analytics & BI',
-      className: 'Analytics Expert',
-      level: 90,
-      color: 'from-emerald-500 to-green-600',
-      borderColor: 'border-emerald-400/50',
-      glowColor: 'shadow-emerald-500/20',
-      skills: [
-        { name: 'Power BI', proficiency: 5 },
-        { name: 'Advanced Excel', proficiency: 5 },
-        { name: 'Data Analytics', proficiency: 5 },
-        { name: 'Power Automate', proficiency: 4 }
-      ]
-    },
-    {
-      icon: Globe,
-      title: 'Cloud & Tools',
-      className: 'Cloud Architect',
-      level: 88,
-      color: 'from-cyan-500 to-blue-600',
-      borderColor: 'border-cyan-400/50',
-      glowColor: 'shadow-cyan-500/20',
-      skills: [
-        { name: 'Google Cloud', proficiency: 5 },
-        { name: 'Azure', proficiency: 4 },
-        { name: 'Project Management', proficiency: 5 },
-        { name: 'Scrum/Agile', proficiency: 5 }
-      ]
-    }
-  ];
 
+const skillCategories = [
+  {
+    icon: Code2,
+    title: 'Backend & Languages',
+    className: 'Code Builder',
+    level: 94,
+    color: 'from-violet-500 to-purple-600',
+    borderColor: 'border-violet-400/50',
+    glowColor: 'shadow-violet-500/20',
+    skills: [
+      { name: 'Python', proficiency: 5 },
+      { name: 'SQL', proficiency: 5 },
+      { name: 'Java', proficiency: 5 },
+      { name: 'Kotlin', proficiency: 4 }
+    ]
+  },
+  {
+    icon: Database,
+    title: 'Data Platforms',
+    className: 'Data Engineer',
+    level: 93,
+    color: 'from-orange-500 to-red-600',
+    borderColor: 'border-orange-400/50',
+    glowColor: 'shadow-orange-500/20',
+    skills: [
+      { name: 'Relational Databases', proficiency: 5 },
+      { name: 'NoSQL Databases', proficiency: 5 },
+      { name: 'Elasticsearch', proficiency: 5 },
+      { name: 'Performance & Modeling', proficiency: 5 }
+    ]
+  },
+  {
+    icon: BarChart3,
+    title: 'Analytics & BI',
+    className: 'Insights Driver',
+    level: 91,
+    color: 'from-emerald-500 to-green-600',
+    borderColor: 'border-emerald-400/50',
+    glowColor: 'shadow-emerald-500/20',
+    skills: [
+      { name: 'Power BI', proficiency: 5 },
+      { name: 'Advanced Excel', proficiency: 5 },
+      { name: 'Data Analytics', proficiency: 5 },
+      { name: 'Power Automate', proficiency: 4 }
+    ]
+  },
+  {
+    icon: Cloud,
+    title: 'Cloud & Delivery',
+    className: 'Cloud Operator',
+    level: 88,
+    color: 'from-cyan-500 to-blue-600',
+    borderColor: 'border-cyan-400/50',
+    glowColor: 'shadow-cyan-500/20',
+    skills: [
+      { name: 'Google Cloud', proficiency: 5 },
+      { name: 'Azure', proficiency: 4 },
+      { name: 'Agile Delivery (Scrum/Kanban)', proficiency: 5 },
+      { name: 'Project Leadership', proficiency: 4 }
+    ]
+  }
+];
   const getProficiencyDots = (level: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <div
