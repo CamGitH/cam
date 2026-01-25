@@ -13,30 +13,6 @@ export default function Experience() {
   const { setView } = useView();
   const [hoveredBadge, setHoveredBadge] = useState<string | null>(null);
 
-  const getSkillColor = (skillName: string) => {
-    const skillColorMap: Record<string, string> = {
-      'Python': 'bg-gradient-to-r from-violet-500 to-purple-600 shadow-violet-500/30',
-      'Java': 'bg-gradient-to-r from-violet-500 to-purple-600 shadow-violet-500/30',
-      'Kotlin': 'bg-gradient-to-r from-violet-500 to-purple-600 shadow-violet-500/30',
-      'SQL': 'bg-gradient-to-r from-violet-500 to-purple-600 shadow-violet-500/30',
-      'SQL Databases': 'bg-gradient-to-r from-orange-500 to-red-600 shadow-orange-500/30',
-      'NO-SQL Databases': 'bg-gradient-to-r from-orange-500 to-red-600 shadow-orange-500/30',
-      'Elastic': 'bg-gradient-to-r from-orange-500 to-red-600 shadow-orange-500/30',
-      'Database Management': 'bg-gradient-to-r from-orange-500 to-red-600 shadow-orange-500/30',
-      'Power BI': 'bg-gradient-to-r from-emerald-500 to-green-600 shadow-emerald-500/30',
-      'Advanced Excel': 'bg-gradient-to-r from-emerald-500 to-green-600 shadow-emerald-500/30',
-      'Data Analytics': 'bg-gradient-to-r from-emerald-500 to-green-600 shadow-emerald-500/30',
-      'Power Automate': 'bg-gradient-to-r from-emerald-500 to-green-600 shadow-emerald-500/30',
-      'Google Cloud': 'bg-gradient-to-r from-cyan-500 to-blue-600 shadow-cyan-500/30',
-      'Azure': 'bg-gradient-to-r from-cyan-500 to-blue-600 shadow-cyan-500/30',
-      'Project Management': 'bg-gradient-to-r from-cyan-500 to-blue-600 shadow-cyan-500/30',
-      'Scrum/Agile': 'bg-gradient-to-r from-cyan-500 to-blue-600 shadow-cyan-500/30',
-      'Scrum': 'bg-gradient-to-r from-cyan-500 to-blue-600 shadow-cyan-500/30',
-    };
-
-    return skillColorMap[skillName] || 'bg-gradient-to-r from-blue-500 to-cyan-600 shadow-blue-500/30';
-  };
-
   const experiences = [
     {
       type: 'work',
@@ -148,7 +124,7 @@ export default function Experience() {
                       const tagId = `${index}-${tagIndex}`;
                       const bgColor = tag.type === 'certificate'
                         ? 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30'
-                        : getSkillColor(tag.label);
+                        : 'bg-gradient-to-r from-blue-500 to-cyan-600 shadow-blue-500/30';
 
                       const handleTagClick = () => {
                         setView(tag.type === 'certificate' ? 'certificates' : 'skills');
