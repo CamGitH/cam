@@ -25,7 +25,18 @@ export default function Hero() {
         <div className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="mb-6 inline-block">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 mx-auto">
-              <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-4xl font-bold text-white">
+              <img
+                src="/images/profile.jpg"
+                alt="Camilo Otalora"
+                className="w-full h-full rounded-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              <div className="w-full h-full rounded-full bg-slate-800 hidden items-center justify-center text-4xl font-bold text-white">
                 CO
               </div>
             </div>
