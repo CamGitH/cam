@@ -1,4 +1,4 @@
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase, GraduationCap, Download } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
 import { useState } from 'react';
@@ -111,6 +111,15 @@ export default function Experience() {
     }
   ];
 
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/cv.pdf';
+    link.download = 'CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="experience" className="py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-6">
@@ -118,7 +127,17 @@ export default function Experience() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">
             {t('experience.title')}
           </h2>
-          <p className="text-center text-slate-600 mb-12 text-lg">{t('experience.subtitle')}</p>
+          <p className="text-center text-slate-600 mb-6 text-lg">{t('experience.subtitle')}</p>
+
+          <div className="flex justify-center mb-12">
+            <button
+              onClick={handleDownloadCV}
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
+              <Download size={20} />
+              <span>{t('experience.downloadCV')}</span>
+            </button>
+          </div>
 
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500"></div>
