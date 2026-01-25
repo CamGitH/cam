@@ -1,13 +1,10 @@
-import { Briefcase, GraduationCap, Trophy, Zap, Users, Target, Crown, Award } from 'lucide-react';
+import { Briefcase, GraduationCap, Award, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useState } from 'react';
 
-interface Achievement {
-  icon: typeof Trophy;
+interface Tag {
   label: string;
-  description: string;
-  color: string;
-  tier: 'gold' | 'silver' | 'bronze';
+  type: 'certificate' | 'skill';
 }
 
 export default function Experience() {
@@ -21,28 +18,12 @@ export default function Experience() {
       company: t('experience.senior.company'),
       period: t('experience.senior.period'),
       description: t('experience.senior.description'),
-      achievements: [
-        {
-          icon: Crown,
-          label: 'Guild Leader',
-          description: 'Leading & mentoring development teams',
-          color: 'from-amber-400 to-yellow-600',
-          tier: 'gold' as const
-        },
-        {
-          icon: Target,
-          label: 'System Master',
-          description: 'Architecting microservices infrastructure',
-          color: 'from-purple-400 to-purple-600',
-          tier: 'gold' as const
-        },
-        {
-          icon: Zap,
-          label: 'Performance Sage',
-          description: 'Optimizing system efficiency',
-          color: 'from-blue-400 to-blue-600',
-          tier: 'silver' as const
-        }
+      tags: [
+        { label: 'Power BI', type: 'certificate' as const },
+        { label: 'Python', type: 'skill' as const },
+        { label: 'SQL', type: 'skill' as const },
+        { label: 'Power Automate', type: 'skill' as const },
+        { label: 'Database Management', type: 'skill' as const }
       ]
     },
     {
@@ -51,21 +32,13 @@ export default function Experience() {
       company: t('experience.developer.company'),
       period: t('experience.developer.period'),
       description: t('experience.developer.description'),
-      achievements: [
-        {
-          icon: Zap,
-          label: 'Full-Stack Warrior',
-          description: 'Mastered both frontend and backend',
-          color: 'from-cyan-400 to-cyan-600',
-          tier: 'silver' as const
-        },
-        {
-          icon: Award,
-          label: 'Code Quality Champion',
-          description: 'Maintaining high code standards',
-          color: 'from-green-400 to-green-600',
-          tier: 'silver' as const
-        }
+      tags: [
+        { label: 'Elastic Sales Engineer', type: 'certificate' as const },
+        { label: 'Elastic Sales Specialist', type: 'certificate' as const },
+        { label: 'Scrum', type: 'certificate' as const },
+        { label: 'Python', type: 'skill' as const },
+        { label: 'Elastic', type: 'skill' as const },
+        { label: 'Data Analytics', type: 'skill' as const }
       ]
     },
     {
@@ -74,21 +47,12 @@ export default function Experience() {
       company: t('experience.intern.company'),
       period: t('experience.intern.period'),
       description: t('experience.intern.description'),
-      achievements: [
-        {
-          icon: Zap,
-          label: 'NLP Expert',
-          description: 'Advanced natural language processing solutions',
-          color: 'from-cyan-400 to-cyan-600',
-          tier: 'silver' as const
-        },
-        {
-          icon: Target,
-          label: 'Search Master',
-          description: 'Elasticsearch & KNN implementations',
-          color: 'from-purple-400 to-purple-600',
-          tier: 'silver' as const
-        }
+      tags: [
+        { label: 'Intro to LLM', type: 'certificate' as const },
+        { label: 'Transformer & BERT', type: 'certificate' as const },
+        { label: 'Python', type: 'skill' as const },
+        { label: 'Java', type: 'skill' as const },
+        { label: 'Elastic', type: 'skill' as const }
       ]
     },
     {
@@ -97,21 +61,10 @@ export default function Experience() {
       company: t('experience.pacific.company'),
       period: t('experience.pacific.period'),
       description: t('experience.pacific.description'),
-      achievements: [
-        {
-          icon: Award,
-          label: 'Process Optimizer',
-          description: 'Reduced processing time by 99%',
-          color: 'from-emerald-400 to-emerald-600',
-          tier: 'silver' as const
-        },
-        {
-          icon: Users,
-          label: 'Quality Champion',
-          description: 'Achieved 90% data quality score',
-          color: 'from-blue-400 to-blue-600',
-          tier: 'bronze' as const
-        }
+      tags: [
+        { label: 'Azure Fundamentals', type: 'certificate' as const },
+        { label: 'Power Automate', type: 'skill' as const },
+        { label: 'Data Analytics', type: 'skill' as const }
       ]
     },
     {
@@ -120,35 +73,13 @@ export default function Experience() {
       company: t('experience.cofounder.company'),
       period: t('experience.cofounder.period'),
       description: t('experience.cofounder.description'),
-      achievements: [
-        {
-          icon: Crown,
-          label: 'Entrepreneur',
-          description: 'Co-founded startup and led development',
-          color: 'from-amber-400 to-yellow-600',
-          tier: 'gold' as const
-        },
-        {
-          icon: Trophy,
-          label: 'Mobile Developer',
-          description: 'Built mobile apps with Kotlin & Firebase',
-          color: 'from-orange-400 to-orange-600',
-          tier: 'bronze' as const
-        }
+      tags: [
+        { label: 'Google Project Management', type: 'certificate' as const },
+        { label: 'Kotlin', type: 'skill' as const },
+        { label: 'Google Cloud', type: 'skill' as const }
       ]
     }
   ];
-
-  const getTierStyles = (tier: 'gold' | 'silver' | 'bronze') => {
-    switch (tier) {
-      case 'gold':
-        return 'shadow-amber-500/50 ring-2 ring-amber-400/30';
-      case 'silver':
-        return 'shadow-slate-400/50 ring-2 ring-slate-300/30';
-      case 'bronze':
-        return 'shadow-orange-600/50 ring-2 ring-orange-400/30';
-    }
-  };
 
   return (
     <section id="experience" className="py-24 bg-gradient-to-b from-white to-slate-50">
@@ -186,26 +117,30 @@ export default function Experience() {
                   <p className="text-slate-600 leading-relaxed mb-4">{exp.description}</p>
 
                   <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100">
-                    {exp.achievements.map((achievement, achIndex) => {
-                      const AchIcon = achievement.icon;
-                      const badgeId = `${index}-${achIndex}`;
+                    {exp.tags.map((tag, tagIndex) => {
+                      const Icon = tag.type === 'certificate' ? Award : Zap;
+                      const tagId = `${index}-${tagIndex}`;
+                      const bgColor = tag.type === 'certificate'
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30'
+                        : 'bg-gradient-to-r from-blue-500 to-cyan-600 shadow-blue-500/30';
+
                       return (
                         <div
-                          key={achIndex}
+                          key={tagIndex}
                           className="relative"
-                          onMouseEnter={() => setHoveredBadge(badgeId)}
+                          onMouseEnter={() => setHoveredBadge(tagId)}
                           onMouseLeave={() => setHoveredBadge(null)}
                         >
                           <div
-                            className={`flex items-center gap-2 px-3 py-2 bg-gradient-to-r ${achievement.color} rounded-lg shadow-lg ${getTierStyles(achievement.tier)} hover:scale-105 transition-transform duration-300 cursor-default`}
+                            className={`flex items-center gap-1.5 px-3 py-1.5 ${bgColor} rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 cursor-default`}
                           >
-                            <AchIcon className="text-white" size={16} />
-                            <span className="text-white font-bold text-xs">{achievement.label}</span>
+                            <Icon className="text-white" size={14} />
+                            <span className="text-white font-semibold text-xs">{tag.label}</span>
                           </div>
 
-                          {hoveredBadge === badgeId && (
+                          {hoveredBadge === tagId && (
                             <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg whitespace-nowrap shadow-xl">
-                              {achievement.description}
+                              {tag.type === 'certificate' ? 'Certificate' : 'Skill'}
                               <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
                                 <div className="border-4 border-transparent border-t-slate-900"></div>
                               </div>
