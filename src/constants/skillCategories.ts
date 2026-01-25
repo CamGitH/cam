@@ -163,6 +163,12 @@ skillCategories.forEach(category => {
   });
 });
 
+// Add additional skills not in main categories
+skillMap.set('algorithms', {
+  icon: Code2,
+  color: 'from-violet-500 to-purple-600'
+});
+
 export function getSkillStyle(skillName: string) {
   const normalizedName = skillName.toLowerCase();
   return skillMap.get(normalizedName) || {

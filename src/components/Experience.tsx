@@ -94,6 +94,20 @@ export default function Experience() {
         { label: 'Project Coordination', type: 'skill' as const },
         { label: 'Agile', type: 'skill' as const }
       ]
+    },
+    {
+      type: 'education',
+      title: t('experience.education.degree'),
+      company: t('experience.education.school'),
+      period: t('experience.education.period'),
+      description: t('experience.education.description'),
+      tags: [
+        { label: 'Python', type: 'skill' as const },
+        { label: 'Java', type: 'skill' as const },
+        { label: 'SQL', type: 'skill' as const },
+        { label: 'Data Analytics', type: 'skill' as const },
+        { label: 'Algorithms', type: 'skill' as const }
+      ]
     }
   ];
 
