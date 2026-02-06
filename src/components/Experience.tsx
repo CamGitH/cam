@@ -111,14 +111,13 @@ export default function Experience() {
     }
   ];
 
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/cv.pdf';
-    link.download = 'CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+const handleDownloadCV = () => {
+  window.open(
+    'https://drive.google.com/file/d/1Erw-8S2oSYnZL8nEdcorUfSqft8Ifzyb/view?usp=sharing',
+    '_blank',
+    'noopener,noreferrer'
+  );
+};
 
   return (
     <section id="experience" className="py-24 bg-gradient-to-b from-white to-slate-50">
