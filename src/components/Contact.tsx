@@ -142,7 +142,7 @@ export default function Contact() {
 
       <div className="container mx-auto px-6 mt-24 pt-12 border-t border-slate-700 relative z-10">
         <p className="text-center text-slate-400">
-          Built with React, TypeScript, and Tailwind CSS
+          You made it this far. We should probably work together.
         </p>
       </div>
     </section>
