@@ -34,27 +34,27 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             <a
               href="mailto:camilo@otalora.com.co"
-              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 overflow-hidden border-2 border-blue-400 hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-2"
+              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 overflow-hidden border-2 border-blue-400 hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-2"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-cyan-500 to-blue-600 opacity-5" />
               <div className="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600" />
 
               <div className="relative">
-                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-blue-400 via-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="text-white" size={32} />
+                <div className="w-12 h-12 mb-4 bg-gradient-to-br from-blue-400 via-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="text-white" size={24} />
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">Email</h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
+                <p className="text-slate-600 mb-3 leading-relaxed text-sm">
                   {t('contact.emailCard')}
                 </p>
 
-                <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all duration-300">
+                <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all duration-300 text-sm">
                   <span className="break-all">camilo@otalora.com.co</span>
-                  <ArrowRight size={20} className="flex-shrink-0" />
+                  <ArrowRight size={16} className="flex-shrink-0" />
                 </div>
               </div>
 
@@ -66,24 +66,24 @@ export default function Contact() {
               href="https://www.linkedin.com/in/camilo-otalora"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 overflow-hidden border-2 border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-500 hover:-translate-y-2"
+              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 overflow-hidden border-2 border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-500 hover:-translate-y-2"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-600 opacity-5" />
               <div className="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-600" />
 
               <div className="relative">
-                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
-                  <Linkedin className="text-white" size={32} />
+                <div className="w-12 h-12 mb-4 bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
+                  <Linkedin className="text-white" size={24} />
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">LinkedIn</h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">LinkedIn</h3>
+                <p className="text-slate-600 mb-3 leading-relaxed text-sm">
                   {t('contact.linkedinCard')}
                 </p>
 
-                <div className="flex items-center gap-2 text-cyan-600 font-semibold group-hover:gap-4 transition-all duration-300">
+                <div className="flex items-center gap-2 text-cyan-600 font-semibold group-hover:gap-4 transition-all duration-300 text-sm">
                   <span>{t('contact.viewProfile')}</span>
-                  <ArrowRight size={20} />
+                  <ArrowRight size={16} />
                 </div>
               </div>
 
@@ -93,24 +93,24 @@ export default function Contact() {
 
             <button
               onClick={handleDownloadCV}
-              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 overflow-hidden border-2 border-green-400 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-500 hover:-translate-y-2 text-left"
+              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 overflow-hidden border-2 border-green-400 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-500 hover:-translate-y-2 text-left"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 opacity-5" />
               <div className="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-green-400 via-emerald-500 to-green-600" />
 
               <div className="relative">
-                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
-                  <Download className="text-white" size={32} />
+                <div className="w-12 h-12 mb-4 bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
+                  <Download className="text-white" size={24} />
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">CV</h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">CV</h3>
+                <p className="text-slate-600 mb-3 leading-relaxed text-sm">
                   {t('contact.cvCard')}
                 </p>
 
-                <div className="flex items-center gap-2 text-green-600 font-semibold group-hover:gap-4 transition-all duration-300">
+                <div className="flex items-center gap-2 text-green-600 font-semibold group-hover:gap-4 transition-all duration-300 text-sm">
                   <span>{t('contact.downloadCV')}</span>
-                  <ArrowRight size={20} />
+                  <ArrowRight size={16} />
                 </div>
               </div>
 
