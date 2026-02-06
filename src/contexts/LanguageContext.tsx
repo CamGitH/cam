@@ -135,9 +135,7 @@ const translations = {
     'contact.sending': 'Sending...',
     'contact.emailCard': "Send me an email and I'll get back to you as soon as possible",
     'contact.linkedinCard': 'Connect with me on LinkedIn for professional networking',
-    'contact.cvCard': 'Download my CV to learn more about my experience and skills',
     'contact.viewProfile': 'View Profile',
-    'contact.downloadCV': 'Download CV',
     'contact.location': 'Location',
   },
   es: {
@@ -278,9 +276,7 @@ const translations = {
     'contact.sending': 'Enviando...',
     'contact.emailCard': 'Envíame un correo y te responderé lo antes posible',
     'contact.linkedinCard': 'Conéctate conmigo en LinkedIn para networking profesional',
-    'contact.cvCard': 'Descarga mi CV para conocer más sobre mi experiencia y habilidades',
     'contact.viewProfile': 'Ver Perfil',
-    'contact.downloadCV': 'Descargar CV',
     'contact.location': 'Ubicación',
   },
 };

@@ -1,18 +1,10 @@
-import { Linkedin, Mail, MapPin, MessageCircle, ArrowRight, Download } from 'lucide-react';
+import { Linkedin, Mail, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
 
 export default function Contact() {
   const { t } = useLanguage();
-
-  const handleDownloadCV = () => {
-    window.open(
-      'https://drive.google.com/file/d/1Erw-8S2oSYnZL8nEdcorUfSqft8Ifzyb/view?usp=sharing',
-      '_blank',
-      'noopener,noreferrer'
-    );
-  };
 
   return (
     <section id="contact" className="min-h-screen py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
@@ -34,7 +26,7 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             <a
               href="mailto:camilo@otalora.com.co"
               className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 overflow-hidden border-2 border-blue-400 hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-2"
@@ -90,33 +82,6 @@ export default function Contact() {
               <div className="absolute top-3 left-3 w-2 h-2 border-l-2 border-t-2 border-slate-300" />
               <div className="absolute bottom-3 right-3 w-2 h-2 border-r-2 border-b-2 border-slate-300" />
             </a>
-
-            <button
-              onClick={handleDownloadCV}
-              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 overflow-hidden border-2 border-green-400 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-500 hover:-translate-y-2 text-left"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 opacity-5" />
-              <div className="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-green-400 via-emerald-500 to-green-600" />
-
-              <div className="relative">
-                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
-                  <Download className="text-white" size={32} />
-                </div>
-
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">CV</h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  {t('contact.cvCard')}
-                </p>
-
-                <div className="flex items-center gap-2 text-green-600 font-semibold group-hover:gap-4 transition-all duration-300">
-                  <span>{t('contact.downloadCV')}</span>
-                  <ArrowRight size={20} />
-                </div>
-              </div>
-
-              <div className="absolute top-3 left-3 w-2 h-2 border-l-2 border-t-2 border-slate-300" />
-              <div className="absolute bottom-3 right-3 w-2 h-2 border-r-2 border-b-2 border-slate-300" />
-            </button>
           </div>
 
           <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border-2 border-slate-300 overflow-hidden">
