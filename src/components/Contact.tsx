@@ -49,7 +49,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-slate-500">Email</div>
-                    <div className="font-medium">contact@camilotalora.it.com</div>
+                    <div className="font-medium">camilo@otalora.com.co</div>
                   </div>
                 </a>
 
