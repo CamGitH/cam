@@ -133,6 +133,10 @@ const translations = {
     'contact.message': 'Your Message',
     'contact.send': 'Send Message',
     'contact.sending': 'Sending...',
+    'contact.emailCard': "Send me an email and I'll get back to you as soon as possible",
+    'contact.linkedinCard': 'Connect with me on LinkedIn for professional networking',
+    'contact.viewProfile': 'View Profile',
+    'contact.location': 'Location',
   },
   es: {
     'nav.home': 'Inicio',
@@ -270,6 +274,10 @@ const translations = {
     'contact.message': 'Tu Mensaje',
     'contact.send': 'Enviar Mensaje',
     'contact.sending': 'Enviando...',
+    'contact.emailCard': 'Envíame un correo y te responderé lo antes posible',
+    'contact.linkedinCard': 'Conéctate conmigo en LinkedIn para networking profesional',
+    'contact.viewProfile': 'Ver Perfil',
+    'contact.location': 'Ubicación',
   },
 };
 

@@ -41,7 +41,7 @@ export default function Contact() {
 
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">Email</h3>
                 <p className="text-slate-600 mb-4 leading-relaxed">
-                  Send me an email and I'll get back to you as soon as possible
+                  {t('contact.emailCard')}
                 </p>
 
                 <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all duration-300">
@@ -70,11 +70,11 @@ export default function Contact() {
 
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">LinkedIn</h3>
                 <p className="text-slate-600 mb-4 leading-relaxed">
-                  Connect with me on LinkedIn for professional networking
+                  {t('contact.linkedinCard')}
                 </p>
 
                 <div className="flex items-center gap-2 text-cyan-600 font-semibold group-hover:gap-4 transition-all duration-300">
-                  <span>View Profile</span>
+                  <span>{t('contact.viewProfile')}</span>
                   <ArrowRight size={20} />
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function Contact() {
               </div>
 
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Location</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{t('contact.location')}</h3>
                 <p className="text-slate-600 text-lg">Bogotá, Colombia</p>
               </div>
             </div>
