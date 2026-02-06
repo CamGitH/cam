@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
@@ -11,6 +11,14 @@ export default function Hero() {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleDownloadCV = () => {
+    window.open(
+      'https://drive.google.com/file/d/1Erw-8S2oSYnZL8nEdcorUfSqft8Ifzyb/view?usp=sharing',
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-24">
@@ -82,10 +90,12 @@ export default function Hero() {
             <a href="https://www.linkedin.com/in/camilo-otalora" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:camilo@otalora.com.co
-              " className="text-slate-400 hover:text-white transition-colors duration-300">
+            <a href="mailto:camilo@otalora.com.co" className="text-slate-400 hover:text-white transition-colors duration-300">
               <Mail size={24} />
             </a>
+            <button onClick={handleDownloadCV} className="text-slate-400 hover:text-white transition-colors duration-300">
+              <Download size={24} />
+            </button>
           </div>
         </div>
       </div>
