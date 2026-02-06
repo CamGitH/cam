@@ -41,7 +41,7 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <a
-                  href="mailto:contact@camilotalora.it.com"
+                  href="mailto:camilo@otalora.com.co"
                   className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors duration-300 group"
                 >
                   <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors duration-300">
