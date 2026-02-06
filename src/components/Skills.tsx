@@ -1,11 +1,8 @@
-import { useLanguage } from '../contexts/LanguageContext';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
 import { skillCategories } from '../constants/skillCategories';
 
 export default function Skills() {
-  const { t } = useLanguage();
-
   const getProficiencyDots = (level: number) =>
     Array.from({ length: 5 }, (_, i) => (
       <div
@@ -29,10 +26,10 @@ export default function Skills() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-            {t('skills.title')}
+            Technical Skills
           </h2>
           <p className="text-center text-slate-300 mb-12 text-lg">
-            {t('skills.subtitle')}
+            Character Build & Abilities
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

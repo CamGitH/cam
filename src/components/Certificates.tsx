@@ -1,18 +1,14 @@
 import { Award, Shield, Star, Sparkles, Medal, Trophy } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
-
-export default function Certificates() {
-  const { t } = useLanguage();
 
 const certificates = [
   {
     icon: Shield,
-    title: t('projects.cert1.title'),
-    issuer: t('projects.cert1.issuer'),
-    date: t('projects.cert1.date'),
-    description: t('projects.cert1.description'),
+    title: 'Elastic Accredited Sales Engineer – Security',
+    issuer: 'Elastic',
+    date: '2024',
+    description: 'Professional accreditation focused on Elastic Security solutions, positioning, and technical sales engineering.',
     skills: ['Elastic Security', 'Threat Detection', 'Sales Engineering'],
     type: 'accreditation',
     gradient: 'from-blue-400 via-cyan-500 to-blue-600',
@@ -21,10 +17,10 @@ const certificates = [
   },
   {
     icon: Shield,
-    title: t('projects.cert2.title'),
-    issuer: t('projects.cert2.issuer'),
-    date: t('projects.cert2.date'),
-    description: t('projects.cert2.description'),
+    title: 'Elastic Accredited Sales Engineer – Enterprise Search',
+    issuer: 'Elastic',
+    date: '2024',
+    description: 'Professional accreditation in Enterprise Search solutions, architecture, and customer-facing technical enablement.',
     skills: ['Enterprise Search', 'Elastic Stack', 'Solution Design'],
     type: 'accreditation',
     gradient: 'from-blue-400 via-sky-500 to-blue-600',
@@ -33,10 +29,10 @@ const certificates = [
   },
   {
     icon: Shield,
-    title: t('projects.cert3.title'),
-    issuer: t('projects.cert3.issuer'),
-    date: t('projects.cert3.date'),
-    description: t('projects.cert3.description'),
+    title: 'Elastic Accredited Sales Engineer – Observability',
+    issuer: 'Elastic',
+    date: '2024',
+    description: 'Professional accreditation covering Elastic Observability use cases, solution design, and sales engineering.',
     skills: ['Observability', 'Logs & Metrics', 'APM'],
     type: 'accreditation',
     gradient: 'from-cyan-400 via-blue-500 to-blue-600',
@@ -45,10 +41,10 @@ const certificates = [
   },
   {
     icon: Star,
-    title: t('projects.cert4.title'),
-    issuer: t('projects.cert4.issuer'),
-    date: t('projects.cert4.date'),
-    description: t('projects.cert4.description'),
+    title: 'Elastic Accredited Sales Specialist – Security',
+    issuer: 'Elastic',
+    date: '2024',
+    description: 'Sales specialist accreditation focused on Elastic Security value propositions and customer engagement.',
     skills: ['Elastic Security', 'Customer Enablement', 'Pre-Sales'],
     type: 'accreditation',
     gradient: 'from-blue-500 via-blue-600 to-cyan-600',
@@ -57,10 +53,10 @@ const certificates = [
   },
   {
     icon: Star,
-    title: t('projects.cert5.title'),
-    issuer: t('projects.cert5.issuer'),
-    date: t('projects.cert5.date'),
-    description: t('projects.cert5.description'),
+    title: 'Elastic Accredited Sales Specialist – Observability',
+    issuer: 'Elastic',
+    date: '2024',
+    description: 'Sales specialist accreditation focused on observability solutions, metrics, logs, and APM.',
     skills: ['Observability', 'Monitoring', 'Sales Specialist'],
     type: 'accreditation',
     gradient: 'from-sky-400 via-blue-500 to-blue-600',
@@ -69,10 +65,10 @@ const certificates = [
   },
   {
     icon: Star,
-    title: t('projects.cert6.title'),
-    issuer: t('projects.cert6.issuer'),
-    date: t('projects.cert6.date'),
-    description: t('projects.cert6.description'),
+    title: 'Elastic Accredited Sales Specialist – Enterprise Search',
+    issuer: 'Elastic',
+    date: '2024',
+    description: 'Sales specialist accreditation for Enterprise Search solutions and business-driven search use cases.',
     skills: ['Enterprise Search', 'Business Search', 'Elastic'],
     type: 'accreditation',
     gradient: 'from-sky-400 via-blue-500 to-cyan-600',
@@ -81,10 +77,10 @@ const certificates = [
   },
   {
     icon: Award,
-    title: t('projects.cert7.title'),
-    issuer: t('projects.cert7.issuer'),
-    date: t('projects.cert7.date'),
-    description: t('projects.cert7.description'),
+    title: 'Elastic Accredited Sales Professional',
+    issuer: 'Elastic',
+    date: '2024',
+    description: 'Professional accreditation validating core Elastic Stack knowledge and solution positioning.',
     skills: ['Elastic Stack', 'Solution Positioning', 'Sales Professional'],
     type: 'accreditation',
     gradient: 'from-blue-400 via-blue-500 to-cyan-600',
@@ -93,10 +89,10 @@ const certificates = [
   },
   {
     icon: Trophy,
-    title: t('projects.cert8.title'),
-    issuer: t('projects.cert8.issuer'),
-    date: t('projects.cert8.date'),
-    description: t('projects.cert8.description'),
+    title: 'Microsoft Certified: Power BI Data Analyst',
+    issuer: 'Microsoft',
+    date: '2023',
+    description: 'Official Microsoft certification validating expertise in data modeling, visualization, and analytics using Power BI.',
     skills: ['Power BI', 'Data Modeling', 'Data Visualization'],
     type: 'certification',
     gradient: 'from-amber-400 via-yellow-500 to-orange-500',
@@ -105,10 +101,10 @@ const certificates = [
   },
   {
     icon: Sparkles,
-    title: t('projects.cert9.title'),
-    issuer: t('projects.cert9.issuer'),
-    date: t('projects.cert9.date'),
-    description: t('projects.cert9.description'),
+    title: 'Intro to Duet AI in Google Workspace',
+    issuer: 'Google',
+    date: '2024',
+    description: 'Training focused on Duet AI capabilities within Google Workspace to enhance productivity and collaboration.',
     skills: ['Duet AI', 'Google Workspace', 'Productivity'],
     type: 'training',
     gradient: 'from-emerald-400 via-green-500 to-teal-600',
@@ -117,10 +113,10 @@ const certificates = [
   },
   {
     icon: Sparkles,
-    title: t('projects.cert10.title'),
-    issuer: t('projects.cert10.issuer'),
-    date: t('projects.cert10.date'),
-    description: t('projects.cert10.description'),
+    title: 'Intro to Large Language Models',
+    issuer: 'AI Fundamentals',
+    date: '2024',
+    description: 'Foundational course covering large language model concepts, capabilities, and applications.',
     skills: ['LLMs', 'AI Fundamentals', 'NLP'],
     type: 'training',
     gradient: 'from-teal-400 via-emerald-500 to-green-600',
@@ -129,10 +125,10 @@ const certificates = [
   },
   {
     icon: Shield,
-    title: t('projects.cert11.title'),
-    issuer: t('projects.cert11.issuer'),
-    date: t('projects.cert11.date'),
-    description: t('projects.cert11.description'),
+    title: 'Intro to Responsible AI',
+    issuer: 'AI Ethics & Governance',
+    date: '2024',
+    description: 'Course focused on ethical AI development, fairness, transparency, and responsible deployment.',
     skills: ['Responsible AI', 'Ethics', 'Governance'],
     type: 'training',
     gradient: 'from-green-400 via-emerald-500 to-teal-600',
@@ -141,10 +137,10 @@ const certificates = [
   },
   {
     icon: Medal,
-    title: t('projects.cert12.title'),
-    issuer: t('projects.cert12.issuer'),
-    date: t('projects.cert12.date'),
-    description: t('projects.cert12.description'),
+    title: 'Applying AI Principles with Google Cloud',
+    issuer: 'Google Cloud',
+    date: '2024',
+    description: 'Training on applying responsible AI principles within Google Cloud environments.',
     skills: ['Google Cloud', 'AI Principles', 'Responsible AI'],
     type: 'training',
     gradient: 'from-emerald-400 via-teal-500 to-cyan-600',
@@ -153,10 +149,10 @@ const certificates = [
   },
   {
     icon: Sparkles,
-    title: t('projects.cert13.title'),
-    issuer: t('projects.cert13.issuer'),
-    date: t('projects.cert13.date'),
-    description: t('projects.cert13.description'),
+    title: 'Prompt Design in Vertex AI',
+    issuer: 'Google Cloud',
+    date: '2024',
+    description: 'Hands-on training in prompt engineering and generative AI workflows using Vertex AI.',
     skills: ['Prompt Engineering', 'Vertex AI', 'Generative AI'],
     type: 'training',
     gradient: 'from-teal-400 via-green-500 to-emerald-600',
@@ -164,6 +160,8 @@ const certificates = [
     glowColor: 'shadow-teal-500/50'
   }
 ];
+
+export default function Certificates() {
 
   const getCredentialTypeLabel = (type: string) => {
     const typeConfig = {
@@ -187,9 +185,9 @@ const certificates = [
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-            {t('projects.title')}
+            Certificates & Badges
           </h2>
-          <p className="text-center text-slate-300 mb-12 text-lg">{t('projects.subtitle')}</p>
+          <p className="text-center text-slate-300 mb-12 text-lg">Collected Achievements & Credentials</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.map((cert, index) => {
