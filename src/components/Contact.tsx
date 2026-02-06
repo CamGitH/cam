@@ -1,153 +1,112 @@
-import { Github, Linkedin, Mail, MapPin, Send } from 'lucide-react';
-import { FormEvent, useState } from 'react';
+import { Linkedin, Mail, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import AnimatedBackground from './AnimatedBackground';
+import FloatingCode from './FloatingCode';
 
 export default function Contact() {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setStatus('success');
-    setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' });
-      setStatus('idle');
-    }, 3000);
-  };
 
   return (
-    <section id="contact" className="py-24 bg-slate-900">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center">
-            {t('contact.title')}
-          </h2>
+    <section id="contact" className="min-h-screen py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-96 h-96 -top-48 -left-48 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <AnimatedBackground />
+        <FloatingCode />
+      </div>
 
-          <p className="text-lg text-slate-400 text-center max-w-3xl mx-auto mb-16">
-            {t('contact.subtitle')}
-          </p>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {t('contact.title')}
+            </h2>
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              {t('contact.subtitle')}
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">{t('contact.title')}</h3>
-              <p className="text-slate-400 mb-8 leading-relaxed">
-                {t('contact.subtitle')}
-              </p>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <a
+              href="mailto:camilo@otalora.com.co"
+              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 overflow-hidden border-2 border-blue-400 hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-cyan-500 to-blue-600 opacity-5" />
+              <div className="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600" />
 
-              <div className="space-y-6">
-                <a
-                  href="mailto:camilo@otalora.com.co"
-                  className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors duration-300 group"
-                >
-                  <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors duration-300">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <div className="text-sm text-slate-500">Email</div>
-                    <div className="font-medium">camilo@otalora.com.co</div>
-                  </div>
-                </a>
-
-                <div className="flex items-center gap-4 text-slate-300">
-                  <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <div className="text-sm text-slate-500">Location</div>
-                    <div className="font-medium">Bogotá, Colombia</div>
-                  </div>
+              <div className="relative">
+                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-blue-400 via-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="text-white" size={32} />
                 </div>
 
-                <div className="pt-6">
-                  <p className="text-slate-400 mb-4">Find me on</p>
-                  <div className="flex gap-4">
-                    <a
-                      href="https://www.linkedin.com/in/camilo-otalora"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors duration-300"
-                    >
-                      <Linkedin size={20} className="text-white" />
-                    </a>
-                  </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Email</h3>
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  Send me an email and I'll get back to you as soon as possible
+                </p>
+
+                <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all duration-300">
+                  <span className="break-all">camilo@otalora.com.co</span>
+                  <ArrowRight size={20} className="flex-shrink-0" />
                 </div>
+              </div>
+
+              <div className="absolute top-3 left-3 w-2 h-2 border-l-2 border-t-2 border-slate-300" />
+              <div className="absolute bottom-3 right-3 w-2 h-2 border-r-2 border-b-2 border-slate-300" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/camilo-otalora"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 overflow-hidden border-2 border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-600 opacity-5" />
+              <div className="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-600" />
+
+              <div className="relative">
+                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300">
+                  <Linkedin className="text-white" size={32} />
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">LinkedIn</h3>
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  Connect with me on LinkedIn for professional networking
+                </p>
+
+                <div className="flex items-center gap-2 text-cyan-600 font-semibold group-hover:gap-4 transition-all duration-300">
+                  <span>View Profile</span>
+                  <ArrowRight size={20} />
+                </div>
+              </div>
+
+              <div className="absolute top-3 left-3 w-2 h-2 border-l-2 border-t-2 border-slate-300" />
+              <div className="absolute bottom-3 right-3 w-2 h-2 border-r-2 border-b-2 border-slate-300" />
+            </a>
+          </div>
+
+          <div className="relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border-2 border-slate-300 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600 opacity-5" />
+            <div className="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-slate-400 via-slate-500 to-slate-600" />
+
+            <div className="relative flex flex-col md:flex-row items-center gap-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white flex-shrink-0">
+                <MapPin className="text-white" size={32} />
+              </div>
+
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Location</h3>
+                <p className="text-slate-600 text-lg">Bogotá, Colombia</p>
               </div>
             </div>
 
-            <div>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-slate-300 mb-2 font-medium">
-                    {t('contact.name')}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-300"
-                    placeholder={t('contact.name')}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-slate-300 mb-2 font-medium">
-                    {t('contact.email')}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-300"
-                    placeholder={t('contact.email')}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-slate-300 mb-2 font-medium">
-                    {t('contact.message')}
-                  </label>
-                  <textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-300 resize-none"
-                    placeholder={t('contact.message')}
-                  />
-                </div>
-
-                {status === 'success' && (
-                  <div className="bg-green-500/10 border border-green-500 text-green-400 px-4 py-3 rounded-lg">
-                    Message sent successfully! I'll get back to you soon.
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105"
-                  disabled={status === 'sending'}
-                >
-                  <span>{status === 'sending' ? t('contact.sending') : t('contact.send')}</span>
-                  <Send size={18} />
-                </button>
-              </form>
-            </div>
+            <div className="absolute top-3 left-3 w-2 h-2 border-l-2 border-t-2 border-slate-300" />
+            <div className="absolute bottom-3 right-3 w-2 h-2 border-r-2 border-b-2 border-slate-300" />
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-6 mt-24 pt-12 border-t border-slate-800">
-        <p className="text-center text-slate-500">
+      <div className="container mx-auto px-6 mt-24 pt-12 border-t border-slate-700 relative z-10">
+        <p className="text-center text-slate-400">
           Built with React, TypeScript, and Tailwind CSS
         </p>
       </div>
