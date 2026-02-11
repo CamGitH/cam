@@ -3,11 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
 import { useState } from 'react';
 import { getSkillStyle, getCertificateStyle } from '../constants/skillCategories';
-
-interface Tag {
-  label: string;
-  type: 'certificate' | 'skill';
-}
+import { PROFILE_LINKS } from '../constants/profile';
 
 export default function Experience() {
   const { t } = useLanguage();
@@ -113,7 +109,7 @@ export default function Experience() {
 
 const handleDownloadCV = () => {
   window.open(
-    'https://drive.google.com/file/d/1Erw-8S2oSYnZL8nEdcorUfSqft8Ifzyb/view?usp=sharing',
+    PROFILE_LINKS.cv,
     '_blank',
     'noopener,noreferrer'
   );

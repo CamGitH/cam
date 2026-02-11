@@ -1,8 +1,9 @@
-import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Linkedin, Mail, Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
 import { useLanguage } from '../contexts/LanguageContext';
+import { PROFILE_EMAIL_HREF, PROFILE_LINKS } from '../constants/profile';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,7 +15,7 @@ export default function Hero() {
 
   const handleDownloadCV = () => {
     window.open(
-      'https://drive.google.com/file/d/1Erw-8S2oSYnZL8nEdcorUfSqft8Ifzyb/view?usp=sharing',
+      PROFILE_LINKS.cv,
       '_blank',
       'noopener,noreferrer'
     );
@@ -87,10 +88,10 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex gap-6 justify-center">
-            <a href="https://www.linkedin.com/in/camilo-otalora" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
+            <a href={PROFILE_LINKS.linkedIn} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:camilo@otalora.com.co" className="text-slate-400 hover:text-white transition-colors duration-300">
+            <a href={PROFILE_EMAIL_HREF} className="text-slate-400 hover:text-white transition-colors duration-300">
               <Mail size={24} />
             </a>
             <button onClick={handleDownloadCV} className="text-slate-400 hover:text-white transition-colors duration-300">
