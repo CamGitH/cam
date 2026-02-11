@@ -1,5 +1,6 @@
-import { Linkedin, Mail, MapPin, MessageCircle, ArrowRight, Download } from 'lucide-react';
+import { Linkedin, Mail, MapPin, ArrowRight, Download } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { PROFILE_EMAIL_HREF, PROFILE_LINKS } from '../constants/profile';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
 
@@ -8,7 +9,7 @@ export default function Contact() {
 
   const handleDownloadCV = () => {
     window.open(
-      'https://drive.google.com/file/d/1Erw-8S2oSYnZL8nEdcorUfSqft8Ifzyb/view?usp=sharing',
+      PROFILE_LINKS.cv,
       '_blank',
       'noopener,noreferrer'
     );
@@ -36,7 +37,7 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <a
-              href="mailto:camilo@otalora.com.co"
+              href={PROFILE_EMAIL_HREF}
               className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 overflow-hidden border-2 border-blue-400 hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:-translate-y-2"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-cyan-500 to-blue-600 opacity-5" />
@@ -53,7 +54,7 @@ export default function Contact() {
                 </p>
 
                 <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all duration-300 text-sm">
-                  <span className="break-all">camilo@otalora.com.co</span>
+                  <span className="break-all">{PROFILE_LINKS.email}</span>
                   <ArrowRight size={16} className="flex-shrink-0" />
                 </div>
               </div>
@@ -63,7 +64,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/camilo-otalora"
+              href={PROFILE_LINKS.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 overflow-hidden border-2 border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-500 hover:-translate-y-2"
@@ -142,7 +143,7 @@ export default function Contact() {
 
       <div className="container mx-auto px-6 mt-24 pt-12 border-t border-slate-700 relative z-10">
         <p className="text-center text-slate-400">
-          You made it this far. We should probably work together.
+          {t('contact.bottomCta')}
         </p>
       </div>
     </section>

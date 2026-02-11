@@ -66,6 +66,7 @@ const translations = {
     'contact.viewProfile': 'View Profile',
     'contact.downloadCV': 'Download CV',
     'contact.location': 'Location',
+    'contact.bottomCta': 'You made it this far. We should probably work together.',
   },
   es: {
     'nav.home': 'Inicio',
@@ -122,6 +123,7 @@ const translations = {
     'contact.viewProfile': 'Ver Perfil',
     'contact.downloadCV': 'Descargar CV',
     'contact.location': 'Ubicación',
+    'contact.bottomCta': 'Llegaste hasta aquí. Probablemente deberíamos trabajar juntos.',
   },
 };
 
