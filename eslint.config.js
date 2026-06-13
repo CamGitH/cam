@@ -24,5 +24,15 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
+  },
+  {
+    // Context-definition files intentionally co-locate the context object and
+    // its hook. The react-refresh rule can't be satisfied here without
+    // fragmenting the module; the Provider components live in separate
+    // *Provider.tsx files and fast-refresh on their own.
+    files: ['src/contexts/*Context.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
   }
 );

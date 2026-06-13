@@ -1,6 +1,7 @@
 import { Award, Shield, Star, Sparkles, Medal, Trophy } from 'lucide-react';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const certificates = [
   {
@@ -162,6 +163,7 @@ const certificates = [
 ];
 
 export default function Certificates() {
+  const { t } = useLanguage();
 
   const getCredentialTypeLabel = (type: string) => {
     const typeConfig = {
@@ -185,9 +187,9 @@ export default function Certificates() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-            Certificates & Badges
+            {t('certificates.title')}
           </h2>
-          <p className="text-center text-slate-300 mb-12 text-lg">Collected Achievements & Credentials</p>
+          <p className="text-center text-slate-300 mb-12 text-lg">{t('certificates.subtitle')}</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.map((cert, index) => {

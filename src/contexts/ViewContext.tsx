@@ -1,28 +1,13 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext } from 'react';
 
-type View = 'home' | 'skills' | 'certificates';
+export type View = 'home' | 'skills' | 'certificates';
 
-interface ViewContextType {
+export interface ViewContextType {
   currentView: View;
   setView: (view: View) => void;
 }
 
-const ViewContext = createContext<ViewContextType | undefined>(undefined);
-
-export function ViewProvider({ children }: { children: ReactNode }) {
-  const [currentView, setCurrentView] = useState<View>('home');
-
-  const setView = (view: View) => {
-    setCurrentView(view);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  return (
-    <ViewContext.Provider value={{ currentView, setView }}>
-      {children}
-    </ViewContext.Provider>
-  );
-}
+export const ViewContext = createContext<ViewContextType | undefined>(undefined);
 
 export function useView() {
   const context = useContext(ViewContext);

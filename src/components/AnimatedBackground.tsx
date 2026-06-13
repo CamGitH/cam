@@ -10,8 +10,8 @@ export default function AnimatedBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
 
     const particles: Particle[] = [];
     const particleCount = 100;
@@ -25,8 +25,8 @@ export default function AnimatedBackground() {
       size: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
         this.size = Math.random() * 2 + 1;
@@ -36,8 +36,8 @@ export default function AnimatedBackground() {
         this.x += this.vx;
         this.y += this.vy;
 
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
       }
 
       draw() {
@@ -53,10 +53,12 @@ export default function AnimatedBackground() {
       particles.push(new Particle());
     }
 
-    function animate() {
-      if (!ctx || !canvas) return;
+    let animationFrameId = 0;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function animate() {
+      if (!ctx) return;
+
+      ctx.clearRect(0, 0, width, height);
 
       particles.forEach((particle) => {
         particle.update();
@@ -80,20 +82,21 @@ export default function AnimatedBackground() {
         }
       }
 
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     }
 
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 

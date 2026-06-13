@@ -1,19 +1,11 @@
 import { Linkedin, Mail, MapPin, ArrowRight, Download } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { PROFILE_EMAIL_HREF, PROFILE_LINKS } from '../constants/profile';
+import { PROFILE_EMAIL_HREF, PROFILE_LINKS, openCV } from '../constants/profile';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
 
 export default function Contact() {
   const { t } = useLanguage();
-
-  const handleDownloadCV = () => {
-    window.open(
-      PROFILE_LINKS.cv,
-      '_blank',
-      'noopener,noreferrer'
-    );
-  };
 
   return (
     <section id="contact" className="min-h-screen py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
@@ -93,7 +85,7 @@ export default function Contact() {
             </a>
 
             <button
-              onClick={handleDownloadCV}
+              onClick={openCV}
               className="group relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 overflow-hidden border-2 border-green-400 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-500 hover:-translate-y-2 text-left"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-emerald-500 to-green-600 opacity-5" />

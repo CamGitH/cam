@@ -5,3 +5,7 @@ export const PROFILE_LINKS = {
 } as const;
 
 export const PROFILE_EMAIL_HREF = `mailto:${PROFILE_LINKS.email}`;
+
+export function openCV() {
+  window.open(PROFILE_LINKS.cv, '_blank', 'noopener,noreferrer');
+}

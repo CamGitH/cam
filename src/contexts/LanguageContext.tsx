@@ -1,16 +1,16 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext } from 'react';
 
-type Language = 'en' | 'es';
+export type Language = 'en' | 'es';
 
-interface LanguageContextType {
+export interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const translations = {
+export const translations = {
   en: {
     'nav.home': 'Home',
     'nav.about': 'About',
@@ -67,6 +67,10 @@ const translations = {
     'contact.downloadCV': 'Download CV',
     'contact.location': 'Location',
     'contact.bottomCta': 'You made it this far. We should probably work together.',
+    'skills.title': 'Technical Skills',
+    'skills.subtitle': 'Character Build & Abilities',
+    'certificates.title': 'Certificates & Badges',
+    'certificates.subtitle': 'Collected Achievements & Credentials',
   },
   es: {
     'nav.home': 'Inicio',
@@ -124,22 +128,12 @@ const translations = {
     'contact.downloadCV': 'Descargar CV',
     'contact.location': 'Ubicación',
     'contact.bottomCta': 'Llegaste hasta aquí. Probablemente deberíamos trabajar juntos.',
+    'skills.title': 'Habilidades Técnicas',
+    'skills.subtitle': 'Construcción de Personaje y Habilidades',
+    'certificates.title': 'Certificados e Insignias',
+    'certificates.subtitle': 'Logros y Credenciales Obtenidos',
   },
 };
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
-
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.en] || key;
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-}
 
 export function useLanguage() {
   const context = useContext(LanguageContext);

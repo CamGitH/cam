@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import AnimatedBackground from './AnimatedBackground';
 import FloatingCode from './FloatingCode';
 import { useLanguage } from '../contexts/LanguageContext';
-import { PROFILE_EMAIL_HREF, PROFILE_LINKS } from '../constants/profile';
+import { PROFILE_EMAIL_HREF, PROFILE_LINKS, openCV } from '../constants/profile';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,14 +12,6 @@ export default function Hero() {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  const handleDownloadCV = () => {
-    window.open(
-      PROFILE_LINKS.cv,
-      '_blank',
-      'noopener,noreferrer'
-    );
-  };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-24">
@@ -94,7 +86,7 @@ export default function Hero() {
             <a href={PROFILE_EMAIL_HREF} className="text-slate-400 hover:text-white transition-colors duration-300">
               <Mail size={24} />
             </a>
-            <button onClick={handleDownloadCV} className="text-slate-400 hover:text-white transition-colors duration-300">
+            <button onClick={openCV} className="text-slate-400 hover:text-white transition-colors duration-300">
               <Download size={24} />
             </button>
           </div>

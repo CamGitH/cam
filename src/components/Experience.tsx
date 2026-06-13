@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
 import { useState } from 'react';
 import { getSkillStyle, getCertificateStyle } from '../constants/skillCategories';
-import { PROFILE_LINKS } from '../constants/profile';
+import { openCV } from '../constants/profile';
 
 export default function Experience() {
   const { t } = useLanguage();
@@ -107,14 +107,6 @@ export default function Experience() {
     }
   ];
 
-const handleDownloadCV = () => {
-  window.open(
-    PROFILE_LINKS.cv,
-    '_blank',
-    'noopener,noreferrer'
-  );
-};
-
   return (
     <section id="experience" className="py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-6">
@@ -126,7 +118,7 @@ const handleDownloadCV = () => {
 
           <div className="flex justify-center mb-12">
             <button
-              onClick={handleDownloadCV}
+              onClick={openCV}
               className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <Download size={20} />
