@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-export type View = 'home' | 'skills' | 'certificates';
+export type View = 'home' | 'projects' | 'skills' | 'certificates';
 
 export interface ViewContextType {
   currentView: View;

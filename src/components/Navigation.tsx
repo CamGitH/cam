@@ -44,6 +44,7 @@ export default function Navigation() {
 
   const navLinks = [
     { view: 'home' as const, label: t('nav.home') },
+    { view: 'projects' as const, label: t('nav.projects') },
     { view: 'skills' as const, label: t('nav.skills') },
     { view: 'certificates' as const, label: t('nav.certificates') },
   ];

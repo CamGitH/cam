@@ -149,6 +149,15 @@
     mask-image: linear-gradient(black, transparent);
   }
 
+  /* Hide scrollbar while keeping scroll (used by the screenshot gallery) */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .delay-500 {
     animation-delay: 0.5s;
   }
