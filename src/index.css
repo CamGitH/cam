@@ -8,16 +8,163 @@
   }
 
   body {
-    @apply antialiased;
+    @apply bg-stone-50 text-ink font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-accent/15 text-ink;
+  }
+
+  /* Crafted, consistent keyboard focus */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent/45 ring-offset-2 ring-offset-stone-50;
+  }
+
+  /* Refined, unobtrusive scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d6d3d1 transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background-color: #d6d3d1;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-mono text-xs font-medium uppercase tracking-[0.2em] text-ink-muted;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-7 bg-gradient-to-r from-accent to-accent/0;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8;
+  }
+
+  /* Hairline card used across the site */
+  .card {
+    @apply relative rounded-2xl border border-stone-200/80 bg-white shadow-soft transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-stone-300 hover:shadow-lift;
+  }
+
+  /* Animated accent hairline that draws in on hover */
+  .card-accent::after {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 rounded-full bg-gradient-to-r from-accent via-accent-soft to-transparent transition-transform duration-500 ease-out;
+  }
+  .card-accent:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Subtle light sweep across a surface on hover */
+  .sheen {
+    @apply relative overflow-hidden;
+  }
+  .sheen::before {
+    content: '';
+    @apply pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -translate-x-full opacity-0;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 100%
+    );
+  }
+  .group:hover .sheen::before,
+  .sheen:hover::before {
+    @apply opacity-100;
+    animation: sheen 0.9s ease-out;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white/80 px-3 py-1 text-xs font-medium text-ink-soft backdrop-blur;
+  }
+
+  /* macOS-style window chrome dots */
+  .window-dots {
+    @apply flex items-center gap-1.5;
+  }
+  .window-dots > span {
+    @apply h-3 w-3 rounded-full;
   }
 }
 
 @layer utilities {
+  /* Dotted grid texture */
+  .bg-grid {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(24, 24, 27, 0.07) 1px,
+      transparent 0
+    );
+    background-size: 26px 26px;
+  }
+
+  .bg-grid-dark {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 0
+    );
+    background-size: 26px 26px;
+  }
+
+  /* Fine ruled lines, for layered section backgrounds */
+  .bg-lines {
+    background-image: linear-gradient(
+      to right,
+      rgba(24, 24, 27, 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 84px 100%;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-ink via-ink to-ink/60 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-accent {
+    @apply bg-gradient-to-br from-accent via-accent-soft to-sky-400 bg-clip-text text-transparent;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(black, transparent);
+    mask-image: linear-gradient(black, transparent);
+  }
+
   .delay-500 {
     animation-delay: 0.5s;
   }
 
   .delay-1000 {
     animation-delay: 1s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

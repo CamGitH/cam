@@ -3,6 +3,32 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
 
+function LanguageToggle({ className = '' }: { className?: string }) {
+  const { language, setLanguage } = useLanguage();
+  const options: Array<'en' | 'es'> = ['en', 'es'];
+
+  return (
+    <div
+      className={`inline-flex items-center rounded-full border border-stone-200 bg-white/70 p-0.5 ${className}`}
+    >
+      {options.map((lang) => (
+        <button
+          key={lang}
+          onClick={() => setLanguage(lang)}
+          aria-pressed={language === lang}
+          className={`rounded-full px-2.5 py-1 font-mono text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${
+            language === lang
+              ? 'bg-ink text-white'
+              : 'text-ink-muted hover:text-ink'
+          }`}
+        >
+          {lang}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,10 +36,8 @@ export default function Navigation() {
   const { currentView, setView } = useView();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -27,61 +51,83 @@ export default function Navigation() {
   const handleContactClick = () => {
     setView('home');
     setTimeout(() => {
-      const contactSection = document.querySelector('#contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-8 md:px-12">
-        <div className="flex items-center justify-between h-20">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'border-b border-stone-200/70 bg-stone-50/80 backdrop-blur-md'
+          : 'border-b border-transparent'
+      }`}
+    >
+      <div className="container-page">
+        <div className="flex h-16 items-center justify-between md:h-20">
           <button
             onClick={() => setView('home')}
-            className="text-2xl font-bold text-white cursor-pointer"
+            className="group flex items-center gap-3"
+            aria-label="Go to home"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink font-mono text-sm font-bold text-white transition-transform duration-300 group-hover:-translate-y-0.5">
               CO
+            </span>
+            <span className="hidden text-sm font-semibold tracking-tight text-ink sm:block">
+              Camilo Otalora
             </span>
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+          <div className="hidden items-center gap-8 md:flex">
+            <div className="flex items-center gap-7">
+              {navLinks.map((link) => (
+                <button
+                  key={link.view}
+                  onClick={() => setView(link.view)}
+                  className={`relative text-sm font-medium transition-colors duration-300 ${
+                    currentView === link.view
+                      ? 'text-ink'
+                      : 'text-ink-muted hover:text-ink'
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 ${
+                      currentView === link.view ? 'w-full' : 'w-0'
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+
+            <div className="h-5 w-px bg-stone-200" />
+
+            <div className="flex items-center gap-4">
+              <LanguageToggle />
               <button
-                key={link.view}
-                onClick={() => setView(link.view)}
-                className={`transition-colors duration-300 font-medium ${
-                  currentView === link.view
-                    ? 'text-white border-b-2 border-cyan-400'
-                    : 'text-slate-300 hover:text-white'
-                }`}
+                onClick={handleContactClick}
+                className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-ink"
               >
-                {link.label}
+                {t('hero.contact')}
               </button>
-            ))}
-            <button
-              onClick={handleContactClick}
-              className="transition-colors duration-300 font-medium text-slate-300 hover:text-white"
-            >
-              {t('hero.contact')}
-            </button>
+            </div>
           </div>
 
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <LanguageToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-ink"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden py-6 border-t border-slate-800">
-            <div className="flex flex-col gap-4">
+          <div className="border-t border-stone-200/70 py-5 md:hidden">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.view}
@@ -89,10 +135,10 @@ export default function Navigation() {
                     setView(link.view);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`text-left transition-colors duration-300 font-medium py-2 ${
+                  className={`rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-colors duration-200 ${
                     currentView === link.view
-                      ? 'text-white border-l-2 border-cyan-400 pl-2'
-                      : 'text-slate-300 hover:text-white'
+                      ? 'bg-stone-100 text-ink'
+                      : 'text-ink-muted hover:bg-stone-100 hover:text-ink'
                   }`}
                 >
                   {link.label}
@@ -103,7 +149,7 @@ export default function Navigation() {
                   handleContactClick();
                   setIsMobileMenuOpen(false);
                 }}
-                className="text-left transition-colors duration-300 font-medium py-2 text-slate-300 hover:text-white"
+                className="mt-2 rounded-lg bg-ink px-3 py-2.5 text-left text-sm font-medium text-white"
               >
                 {t('hero.contact')}
               </button>

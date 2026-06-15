@@ -1,14 +1,14 @@
-import { Briefcase, GraduationCap, Download } from 'lucide-react';
+import { Briefcase, GraduationCap, Download, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
-import { useState } from 'react';
 import { getSkillStyle, getCertificateStyle } from '../constants/skillCategories';
 import { openCV } from '../constants/profile';
+import SectionHeading from './SectionHeading';
+import Reveal from './Reveal';
 
 export default function Experience() {
   const { t } = useLanguage();
   const { setView } = useView();
-  const [hoveredBadge, setHoveredBadge] = useState<string | null>(null);
 
   const experiences = [
     {
@@ -25,8 +25,8 @@ export default function Experience() {
         { label: 'Power Automate', type: 'skill' as const },
         { label: 'Database Management', type: 'skill' as const },
         { label: 'Data Modeling', type: 'skill' as const },
-        { label: 'ETL', type: 'skill' as const }
-      ]
+        { label: 'ETL', type: 'skill' as const },
+      ],
     },
     {
       type: 'work',
@@ -43,8 +43,8 @@ export default function Experience() {
         { label: 'Data Analytics', type: 'skill' as const },
         { label: 'Docker', type: 'skill' as const },
         { label: 'Git', type: 'skill' as const },
-        { label: 'Agile', type: 'skill' as const }
-      ]
+        { label: 'Agile', type: 'skill' as const },
+      ],
     },
     {
       type: 'work',
@@ -59,8 +59,8 @@ export default function Experience() {
         { label: 'Java', type: 'skill' as const },
         { label: 'Elasticsearch', type: 'skill' as const },
         { label: 'APIs & Integrations', type: 'skill' as const },
-        { label: 'Git', type: 'skill' as const }
-      ]
+        { label: 'Git', type: 'skill' as const },
+      ],
     },
     {
       type: 'work',
@@ -74,8 +74,8 @@ export default function Experience() {
         { label: 'Power Automate', type: 'skill' as const },
         { label: 'Power BI', type: 'skill' as const },
         { label: 'Data Analytics', type: 'skill' as const },
-        { label: 'Advanced Excel', type: 'skill' as const }
-      ]
+        { label: 'Advanced Excel', type: 'skill' as const },
+      ],
     },
     {
       type: 'work',
@@ -88,8 +88,8 @@ export default function Experience() {
         { label: 'Kotlin', type: 'skill' as const },
         { label: 'Google Cloud', type: 'skill' as const },
         { label: 'Project Coordination', type: 'skill' as const },
-        { label: 'Agile', type: 'skill' as const }
-      ]
+        { label: 'Agile', type: 'skill' as const },
+      ],
     },
     {
       type: 'education',
@@ -102,108 +102,111 @@ export default function Experience() {
         { label: 'Java', type: 'skill' as const },
         { label: 'SQL', type: 'skill' as const },
         { label: 'Data Analytics', type: 'skill' as const },
-        { label: 'Algorithms', type: 'skill' as const }
-      ]
-    }
+        { label: 'Algorithms', type: 'skill' as const },
+      ],
+    },
   ];
 
   return (
-    <section id="experience" className="py-24 bg-gradient-to-b from-white to-slate-50">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 text-center">
-            {t('experience.title')}
-          </h2>
-          <p className="text-center text-slate-600 mb-6 text-lg">{t('experience.subtitle')}</p>
+    <section id="experience" className="bg-stone-50 py-24 sm:py-32">
+      <div className="container-page">
+        <SectionHeading
+          index={2}
+          eyebrow={t('nav.experience')}
+          title={t('experience.title')}
+          description={t('experience.subtitle')}
+        />
 
-          <div className="flex justify-center mb-12">
-            <button
-              onClick={openCV}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            >
-              <Download size={20} />
-              <span>{t('experience.downloadCV')}</span>
-            </button>
-          </div>
+        <Reveal className="mt-10 flex justify-center">
+          <button
+            onClick={openCV}
+            className="group inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-ink"
+          >
+            <Download size={16} />
+            {t('experience.downloadCV')}
+          </button>
+        </Reveal>
 
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500"></div>
-
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-20 pb-12 last:pb-0">
-                <div className="absolute left-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg ring-4 ring-white">
-                  {exp.type === 'work' ? (
-                    <Briefcase className="text-white" size={24} />
-                  ) : (
-                    <GraduationCap className="text-white" size={24} />
+        <div className="relative mx-auto mt-16 max-w-3xl">
+          <span
+            aria-hidden
+            className="absolute left-0 top-2 bottom-6 w-px bg-gradient-to-b from-accent via-stone-300 to-transparent"
+          />
+          <ol>
+          {experiences.map((exp, index) => {
+            const NodeIcon = exp.type === 'work' ? Briefcase : GraduationCap;
+            const isCurrent = index === 0;
+            return (
+              <Reveal
+                as="li"
+                key={index}
+                delay={index * 60}
+                className="relative pb-10 pl-8 last:pb-0 sm:pl-10"
+              >
+                <span
+                  className={`absolute -left-[15px] top-0 flex h-7 w-7 items-center justify-center rounded-full border bg-white transition-colors duration-300 ${
+                    isCurrent
+                      ? 'border-accent/40 text-accent shadow-[0_0_0_4px_rgba(37,99,235,0.08)]'
+                      : 'border-stone-200 text-ink'
+                  }`}
+                >
+                  {isCurrent && (
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full border border-accent/40" />
                   )}
-                </div>
+                  <NodeIcon size={13} strokeWidth={1.9} />
+                </span>
 
-                <div className="bg-white rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 border-2 border-slate-200 hover:border-blue-300">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <article className="card card-hover card-accent sheen group p-6">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-900 mb-1">{exp.title}</h3>
-                      <p className="text-lg text-slate-700 font-medium mb-2">{exp.company}</p>
+                      <h3 className="text-base font-semibold leading-snug tracking-tight text-ink sm:text-lg">
+                        {exp.title}
+                      </h3>
+                      <p className="mt-1 text-sm font-medium text-ink-soft">{exp.company}</p>
                     </div>
-                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-bold rounded-full mt-2 md:mt-0">
+                    <span className="inline-flex w-fit items-center rounded-full bg-stone-100 px-3 py-1 font-mono text-xs font-medium text-ink-soft">
                       {exp.period}
                     </span>
                   </div>
 
-                  <p className="text-slate-600 leading-relaxed mb-4">{exp.description}</p>
+                  {exp.description.trim() && (
+                    <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+                      {exp.description}
+                    </p>
+                  )}
 
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100">
-                    {exp.tags.map((tag, tagIndex) => {
-                      const tagId = `${index}-${tagIndex}`;
-
-                      let Icon;
-                      let bgColor;
-
-                      if (tag.type === 'certificate') {
-                        const certStyle = getCertificateStyle(tag.label);
-                        Icon = certStyle.icon;
-                        bgColor = `bg-gradient-to-r ${certStyle.color} shadow-lg`;
-                      } else {
-                        const skillStyle = getSkillStyle(tag.label);
-                        Icon = skillStyle.icon;
-                        bgColor = `bg-gradient-to-r ${skillStyle.color} shadow-lg`;
-                      }
-
-                      const handleTagClick = () => {
-                        setView(tag.type === 'certificate' ? 'certificates' : 'skills');
-                      };
-
-                      return (
-                        <div
-                          key={tagIndex}
-                          className="relative"
-                          onMouseEnter={() => setHoveredBadge(tagId)}
-                          onMouseLeave={() => setHoveredBadge(null)}
-                        >
-                          <div
-                            onClick={handleTagClick}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 ${bgColor} rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer`}
+                  {exp.tags.length > 0 && (
+                    <div className="mt-5 flex flex-wrap gap-2 border-t border-stone-100 pt-5">
+                      {exp.tags.map((tag, tagIndex) => {
+                        const Icon =
+                          tag.type === 'certificate'
+                            ? getCertificateStyle(tag.label).icon
+                            : getSkillStyle(tag.label).icon;
+                        return (
+                          <button
+                            key={tagIndex}
+                            onClick={() =>
+                              setView(tag.type === 'certificate' ? 'certificates' : 'skills')
+                            }
+                            title={tag.type === 'certificate' ? 'View certificate' : 'View skill'}
+                            className="group inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-soft transition-all duration-200 hover:border-accent/40 hover:bg-accent/5 hover:text-accent"
                           >
-                            <Icon className="text-white" size={14} />
-                            <span className="text-white font-semibold text-xs">{tag.label}</span>
-                          </div>
-
-                          {hoveredBadge === tagId && (
-                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg whitespace-nowrap shadow-xl pointer-events-none">
-                              {tag.type === 'certificate' ? 'View Certificate' : 'View Skill'}
-                              <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
-                                <div className="border-4 border-transparent border-t-slate-900"></div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                            <Icon size={13} strokeWidth={1.9} />
+                            {tag.label}
+                            <ArrowUpRight
+                              size={11}
+                              className="opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                            />
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </article>
+              </Reveal>
+            );
+          })}
+          </ol>
         </div>
       </div>
     </section>

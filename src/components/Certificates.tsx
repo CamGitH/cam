@@ -1,7 +1,7 @@
 import { Award, Shield, Star, Sparkles, Medal, Trophy } from 'lucide-react';
-import AnimatedBackground from './AnimatedBackground';
-import FloatingCode from './FloatingCode';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionHeading from './SectionHeading';
+import Reveal from './Reveal';
 
 const certificates = [
   {
@@ -167,88 +167,93 @@ export default function Certificates() {
 
   const getCredentialTypeLabel = (type: string) => {
     const typeConfig = {
-      certification: { label: 'CERTIFICATION', color: 'text-amber-400' },
-      accreditation: { label: 'ACCREDITATION', color: 'text-blue-400' },
-      training: { label: 'COURSE / TRAINING', color: 'text-emerald-400' }
+      certification: { label: 'CERTIFICATION', color: 'text-amber-600', dot: 'bg-amber-500' },
+      accreditation: { label: 'ACCREDITATION', color: 'text-blue-600', dot: 'bg-blue-500' },
+      training: { label: 'COURSE / TRAINING', color: 'text-emerald-600', dot: 'bg-emerald-500' },
     };
     return typeConfig[type as keyof typeof typeConfig] || typeConfig.training;
   };
 
+  const legend = (['accreditation', 'certification', 'training'] as const).map((type) => ({
+    ...getCredentialTypeLabel(type),
+    count: certificates.filter((c) => c.type === type).length,
+  }));
+
   return (
-    <section className="min-h-screen pt-32 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 -top-48 -left-48 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute w-96 h-96 top-1/3 right-1/4 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
-        <AnimatedBackground />
-        <FloatingCode />
-      </div>
+    <section className="relative min-h-screen bg-stone-50 pb-24 pt-32">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-grid mask-fade-b" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-            {t('certificates.title')}
-          </h2>
-          <p className="text-center text-slate-300 mb-12 text-lg">{t('certificates.subtitle')}</p>
+      <div className="container-page relative z-10">
+        <SectionHeading
+          eyebrow={t('nav.certificates')}
+          title={t('certificates.title')}
+          description={t('certificates.subtitle')}
+        />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certificates.map((cert, index) => {
-              const Icon = cert.icon;
-              const typeInfo = getCredentialTypeLabel(cert.type);
-              return (
-                <div
-                  key={index}
-                  className={`relative bg-gradient-to-br from-white to-slate-50 rounded-2xl overflow-hidden border-2 ${cert.borderColor} hover:${cert.glowColor} hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group`}
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-5`} />
+        <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-2.5">
+          {legend.map((item) => (
+            <span
+              key={item.label}
+              className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-ink-soft shadow-soft"
+            >
+              <span className={`h-1.5 w-1.5 rounded-full ${item.dot}`} />
+              <span className="capitalize">{item.label.toLowerCase()}</span>
+              <span className="font-mono text-ink-muted">{item.count}</span>
+            </span>
+          ))}
+        </Reveal>
 
-                  <div className={`h-1.5 bg-gradient-to-r ${cert.gradient}`} />
-
-                  <div className="absolute top-3 right-3">
-                    <div className={`flex items-center gap-1 px-2 py-1 bg-gradient-to-r ${cert.gradient} rounded-full`}>
-                      <Star className="text-white" size={12} />
-                      <span className={`text-white font-bold text-xs tracking-wider`}>
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {certificates.map((cert, index) => {
+            const Icon = cert.icon;
+            const typeInfo = getCredentialTypeLabel(cert.type);
+            return (
+              <Reveal key={index} delay={(index % 3) * 80}>
+                <article className="card card-hover sheen group h-full overflow-hidden">
+                  <div className={`h-1 w-full bg-gradient-to-r ${cert.gradient}`} />
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-3">
+                      <div
+                        className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${cert.gradient} text-white shadow-sm transition-transform duration-300 group-hover:scale-105`}
+                      >
+                        <Icon size={22} strokeWidth={1.9} />
+                      </div>
+                      <span
+                        className={`font-mono text-[10px] font-semibold uppercase tracking-widest ${typeInfo.color}`}
+                      >
                         {typeInfo.label}
                       </span>
                     </div>
-                  </div>
 
-                  <div className="relative p-6">
-                    <div className={`w-16 h-16 mb-4 bg-gradient-to-br ${cert.gradient} rounded-xl flex items-center justify-center shadow-lg ring-4 ring-white group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="text-white" size={32} />
-                    </div>
-
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 leading-tight">
+                    <h3 className="mt-5 text-base font-semibold leading-snug tracking-tight text-ink">
                       {cert.title}
                     </h3>
 
-                    <div className="mb-3">
-                      <p className="text-sm font-semibold text-slate-700">{cert.issuer}</p>
-                      <p className="text-xs text-slate-500 font-medium">{cert.date}</p>
+                    <div className="mt-1.5 flex items-center gap-2 text-xs text-ink-muted">
+                      <span className="font-medium text-ink-soft">{cert.issuer}</span>
+                      <span className="h-1 w-1 rounded-full bg-stone-300" />
+                      <span className="font-mono">{cert.date}</span>
                     </div>
 
-                    <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                    <p className="mt-4 text-sm leading-relaxed text-ink-muted">
                       {cert.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200">
+                    <div className="mt-5 flex flex-wrap gap-1.5 border-t border-stone-100 pt-4">
                       {cert.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className={`px-2 py-1 bg-gradient-to-r ${cert.gradient} bg-opacity-10 rounded-md text-xs font-bold text-slate-700 border border-slate-200`}
+                          className="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-soft"
                         >
                           {skill}
                         </span>
                       ))}
                     </div>
                   </div>
-
-                  <div className="absolute top-3 left-3 w-2 h-2 border-l-2 border-t-2 border-slate-300" />
-                  <div className="absolute bottom-3 right-3 w-2 h-2 border-r-2 border-b-2 border-slate-300" />
-                </div>
-              );
-            })}
-          </div>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

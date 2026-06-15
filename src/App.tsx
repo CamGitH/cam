@@ -5,27 +5,32 @@ import Skills from './components/Skills';
 import Certificates from './components/Certificates';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import { useView } from './contexts/ViewContext';
 
 function App() {
   const { currentView } = useView();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-stone-50">
       <Navigation />
 
-      {currentView === 'home' && (
-        <>
-          <Hero />
-          <About />
-          <Experience />
-          <Contact />
-        </>
-      )}
+      <main>
+        {currentView === 'home' && (
+          <>
+            <Hero />
+            <About />
+            <Experience />
+            <Contact />
+          </>
+        )}
 
-      {currentView === 'skills' && <Skills />}
+        {currentView === 'skills' && <Skills />}
 
-      {currentView === 'certificates' && <Certificates />}
+        {currentView === 'certificates' && <Certificates />}
+      </main>
+
+      <Footer />
     </div>
   );
 }

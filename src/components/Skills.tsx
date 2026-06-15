@@ -1,98 +1,111 @@
-import AnimatedBackground from './AnimatedBackground';
-import FloatingCode from './FloatingCode';
 import { skillCategories } from '../constants/skillCategories';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionHeading from './SectionHeading';
+import Reveal from './Reveal';
 
 export default function Skills() {
   const { t } = useLanguage();
 
-  const getProficiencyDots = (level: number) =>
+  const totalSkills = skillCategories.reduce((sum, c) => sum + c.skills.length, 0);
+  const avgLevel = Math.round(
+    skillCategories.reduce((sum, c) => sum + c.level, 0) / skillCategories.length
+  );
+
+  const proficiencyDots = (level: number) =>
     Array.from({ length: 5 }, (_, i) => (
-      <div
+      <span
         key={i}
-        className={`w-1.5 h-1.5 rounded-full ${
-          i < level ? 'bg-amber-400' : 'bg-slate-300'
+        className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${
+          i < level ? 'bg-ink group-hover/row:bg-accent' : 'bg-stone-200'
         }`}
       />
     ));
 
+  const stats = [
+    { value: skillCategories.length, label: 'Focus areas' },
+    { value: totalSkills, label: 'Skills' },
+    { value: `${avgLevel}%`, label: 'Avg. level' },
+  ];
+
   return (
-    <section className="min-h-screen pt-32 pb-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 -top-48 -left-48 bg-violet-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-500" />
-        <AnimatedBackground />
-        <FloatingCode />
-      </div>
+    <section className="relative min-h-screen bg-stone-50 pb-24 pt-32">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-grid mask-fade-b" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-            {t('skills.title')}
-          </h2>
-          <p className="text-center text-slate-300 mb-12 text-lg">
-            {t('skills.subtitle')}
-          </p>
+      <div className="container-page relative z-10">
+        <SectionHeading
+          eyebrow={t('nav.skills')}
+          title={t('skills.title')}
+          description={t('skills.subtitle')}
+        />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillCategories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <div
-                  key={index}
-                  className={`relative bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border-2 ${category.borderColor} hover:${category.glowColor} hover:shadow-2xl transition-all duration-500 overflow-hidden group`}
-                >
-                  <div className="relative">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div
-                        className={`w-14 h-14 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center shadow-lg`}
-                      >
-                        <Icon className="text-white" size={26} />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-900">
-                          {category.title}
-                        </h3>
-                        <p className="text-sm text-slate-500 italic">
-                          {category.className}
-                        </p>
-                      </div>
+        <Reveal className="mx-auto mt-10 flex max-w-md items-stretch justify-center divide-x divide-stone-200 rounded-2xl border border-stone-200 bg-white shadow-soft">
+          {stats.map((s) => (
+            <div key={s.label} className="flex-1 px-5 py-4 text-center">
+              <div className="text-2xl font-bold tracking-tight text-ink">{s.value}</div>
+              <div className="mt-0.5 font-mono text-[11px] uppercase tracking-wider text-ink-muted">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {skillCategories.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <Reveal key={category.title} delay={(index % 3) * 80}>
+                <article className="card card-hover sheen group h-full overflow-hidden p-7">
+                  <div
+                    className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${category.color} opacity-80`}
+                  />
+                  <div className="flex items-center gap-4">
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${category.color} text-white shadow-sm transition-transform duration-300 group-hover:scale-105`}
+                    >
+                      <Icon size={22} strokeWidth={1.9} />
                     </div>
-
-                    <div className="mb-4">
-                      <div className="flex justify-between text-xs text-slate-600 mb-1">
-                        <span>Experience Level</span>
-                        <span className="font-bold">{category.level}%</span>
-                      </div>
-                      <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full bg-gradient-to-r ${category.color}`}
-                          style={{ width: `${category.level}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      {category.skills.map((skill, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between px-4 py-2 bg-white rounded-lg border border-slate-200"
-                        >
-                          <span className="text-sm font-medium text-slate-700">
-                            {skill.name}
-                          </span>
-                          <div className="flex gap-1">
-                            {getProficiencyDots(skill.proficiency)}
-                          </div>
-                        </div>
-                      ))}
+                    <div>
+                      <h3 className="text-base font-semibold tracking-tight text-ink">
+                        {category.title}
+                      </h3>
+                      <p className="font-mono text-xs uppercase tracking-wider text-ink-muted">
+                        {category.className}
+                      </p>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+
+                  <div className="mt-6">
+                    <div className="mb-1.5 flex items-center justify-between text-xs text-ink-muted">
+                      <span className="font-medium">Experience Level</span>
+                      <span className="font-mono font-semibold text-ink">{category.level}%</span>
+                    </div>
+                    <div className="h-1.5 overflow-hidden rounded-full bg-stone-100">
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r ${category.color} transition-[width] duration-700 ease-out`}
+                        style={{ width: `${category.level}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <ul className="mt-6 space-y-1">
+                    {category.skills.map((skill) => (
+                      <li
+                        key={skill.name}
+                        className="group/row -mx-2 flex items-center justify-between gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200 hover:bg-stone-50"
+                      >
+                        <span className="text-sm text-ink-soft transition-colors duration-200 group-hover/row:text-ink">
+                          {skill.name}
+                        </span>
+                        <span className="flex shrink-0 gap-1">
+                          {proficiencyDots(skill.proficiency)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
