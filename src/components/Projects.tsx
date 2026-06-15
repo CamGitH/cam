@@ -203,7 +203,7 @@ function ScreenshotGallery({ shots }: { shots: Screenshot[] }) {
         {visible.map((shot) => (
           <div
             key={shot.src}
-            className="shrink-0 snap-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-zinc-900 shadow-[0_30px_80px_-35px_rgba(255,255,255,0.35)]"
+            className="shrink-0 snap-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-zinc-900 shadow-[0_30px_80px_-35px_rgba(255,255,255,0.35)] ring-1 ring-white/5 transition duration-500 hover:ring-white/15"
           >
             <img
               src={encodeURI(shot.src)}
@@ -247,7 +247,7 @@ function ProjectIcon({ project, className = '' }: { project: Project; className?
   if (!project.icon || failed) {
     return (
       <span
-        className={`flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-zinc-300 ${className}`}
+        className={`flex items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] text-zinc-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] ${className}`}
       >
         <PlatformIcon size={24} />
       </span>
@@ -259,28 +259,38 @@ function ProjectIcon({ project, className = '' }: { project: Project; className?
       src={project.icon}
       alt={`${project.name} icon`}
       onError={() => setFailed(true)}
-      className={`rounded-2xl border border-white/10 object-cover ${className}`}
+      className={`rounded-2xl object-cover shadow-[0_12px_30px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 ${className}`}
     />
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { t } = useLanguage();
   const PlatformIcon = project.platformIcon;
   const isPlaceholder = !!project.comingSoon;
 
   return (
     <Reveal
-      className={`card card-accent sheen overflow-hidden bg-zinc-950 text-white ${
-        isPlaceholder ? 'border-dashed border-white/15' : ''
+      className={`group card card-accent sheen relative overflow-hidden bg-zinc-950 text-white !border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_30px_80px_-40px_rgba(2,6,23,0.9)] transition-all duration-500 hover:-translate-y-1 hover:!border-white/20 hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_45px_110px_-45px_rgba(37,99,235,0.5)] ${
+        isPlaceholder ? '!border-dashed !border-white/15 hover:!border-white/25' : ''
       }`}
     >
-      <div className="p-6 sm:p-8 lg:p-10">
+      {/* Depth: dotted texture + ambient accent glow */}
+      <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50 [mask-image:radial-gradient(ellipse_85%_60%_at_50%_0%,black,transparent)]" />
+      {!isPlaceholder && (
+        <div className="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full bg-accent/20 opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+      )}
+
+      <div className="relative z-10 p-6 sm:p-8 lg:p-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div className="flex items-start gap-4">
             <ProjectIcon project={project} className="h-16 w-16 shrink-0" />
             <div>
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="font-mono text-xs font-semibold text-accent-soft">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="h-px w-6 bg-gradient-to-r from-white/30 to-transparent" />
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-zinc-400">
                   <PlatformIcon size={13} />
                   {project.platform}
@@ -297,7 +307,7 @@ function ProjectCard({ project }: { project: Project }) {
                   </span>
                 )}
               </div>
-              <h3 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              <h3 className="mt-3 bg-gradient-to-br from-white to-white/65 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
                 {project.name}
               </h3>
             </div>
@@ -308,12 +318,12 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone-100"
+              className="group/cta inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-[0_12px_30px_-12px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone-100"
             >
               {t(project.ctaKey)}
               <ArrowUpRight
                 size={16}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
               />
             </a>
           )}
@@ -327,7 +337,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300"
+              className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-white/20 hover:text-white"
             >
               {tag}
             </span>
@@ -335,12 +345,12 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {project.highlights && (
-          <div className="mt-8 grid gap-5 border-t border-white/10 pt-8 md:grid-cols-3">
+          <div className="mt-8 grid gap-x-6 gap-y-7 border-t border-white/10 pt-8 md:grid-cols-3">
             {project.highlights.map((feature) => {
               const Icon = feature.icon;
               return (
-                <div key={feature.titleKey}>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent-soft">
+                <div key={feature.titleKey} className="group/feat">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] text-accent-soft shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] transition-colors duration-300 group-hover/feat:border-accent/40 group-hover/feat:text-accent">
                     <Icon size={18} strokeWidth={1.75} />
                   </span>
                   <h4 className="mt-4 text-sm font-semibold tracking-tight text-white">
@@ -384,8 +394,8 @@ export default function Projects() {
         />
 
         <div className="mt-16 space-y-10">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </div>

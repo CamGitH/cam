@@ -6,7 +6,6 @@ import { PROFILE_EMAIL_HREF, PROFILE_LINKS, openCV } from '../constants/profile'
 export default function Footer() {
   const { t } = useLanguage();
   const { setView } = useView();
-  const year = new Date().getFullYear();
 
   const goToContact = () => {
     setView('home');
@@ -78,7 +77,6 @@ export default function Footer() {
             </span>
             <span>Camilo Otalora</span>
           </div>
-          <span className="font-mono">© {year} · Built with React &amp; Tailwind CSS</span>
         </div>
       </div>
     </footer>
