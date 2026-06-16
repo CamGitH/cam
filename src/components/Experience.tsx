@@ -17,6 +17,12 @@ export default function Experience() {
       company: t('experience.education.ai.school'),
       period: t('experience.education.ai.period'),
       description: t('experience.education.ai.description'),
+      logo: {
+        name: 'Sheridan OT',
+        initials: 'SH',
+        color: 'from-red-500 to-rose-600',
+        src: '/logos/Sheridan.jpg',
+      },
       tags: [
         { label: 'NLP / AI Integration', type: 'skill' as const },
         { label: 'Google Cloud', type: 'skill' as const },
@@ -30,6 +36,12 @@ export default function Experience() {
       company: t('experience.senior.company'),
       period: t('experience.senior.period'),
       description: t('experience.senior.description'),
+      logo: {
+        name: 'Mentum Group',
+        initials: 'MG',
+        color: 'from-sky-500 to-blue-700',
+        src: '/logos/mentum.png',
+      },
       tags: [
         { label: 'Power BI', type: 'certificate' as const },
         { label: 'Python', type: 'skill' as const },
@@ -47,6 +59,12 @@ export default function Experience() {
       company: t('experience.intern.company'),
       period: t('experience.intern.period'),
       description: t('experience.intern.description'),
+      logo: {
+        name: 'Avature',
+        initials: 'AV',
+        color: 'from-indigo-500 to-violet-700',
+        src: '/logos/Avature.png',
+      },
       tags: [
         { label: 'Intro to LLM', type: 'certificate' as const },
         { label: 'Python', type: 'skill' as const },
@@ -63,6 +81,12 @@ export default function Experience() {
       company: t('experience.developer.company'),
       period: t('experience.developer.period'),
       description: t('experience.developer.description'),
+      logo: {
+        name: 'NowBit',
+        initials: 'NB',
+        color: 'from-emerald-500 to-teal-700',
+        src: '/logos/nowbit.png',
+      },
       tags: [
         { label: 'Elastic Sales Engineer', type: 'certificate' as const },
         { label: 'Elastic Sales Specialist', type: 'certificate' as const },
@@ -80,6 +104,12 @@ export default function Experience() {
       company: t('experience.pacific.company'),
       period: t('experience.pacific.period'),
       description: t('experience.pacific.description'),
+      logo: {
+        name: 'Procter & Gamble',
+        initials: 'P&G',
+        color: 'from-blue-600 to-cyan-700',
+        src: '/logos/pg.jpg',
+      },
       tags: [
         { label: 'Power Automate', type: 'skill' as const },
         { label: 'Power BI', type: 'skill' as const },
@@ -94,6 +124,11 @@ export default function Experience() {
       company: t('experience.cofounder.company'),
       period: t('experience.cofounder.period'),
       description: t('experience.cofounder.description'),
+      logo: {
+        name: 'AWKI',
+        initials: 'AW',
+        color: 'from-amber-500 to-orange-700',
+      },
       tags: [
         { label: 'Kotlin', type: 'skill' as const },
         { label: 'Android Studio', type: 'skill' as const },
@@ -108,6 +143,12 @@ export default function Experience() {
       company: t('experience.education.school'),
       period: t('experience.education.period'),
       description: t('experience.education.description'),
+      logo: {
+        name: 'Universidad de los Andes',
+        initials: 'UA',
+        color: 'from-yellow-500 to-orange-600',
+        src: '/logos/uniandes.png',
+      },
       tags: [
         { label: 'Python', type: 'skill' as const },
         { label: 'Java', type: 'skill' as const },
@@ -143,6 +184,10 @@ export default function Experience() {
             aria-hidden
             className="absolute left-0 top-2 bottom-6 w-px bg-gradient-to-b from-accent via-stone-300 to-transparent lg:left-1/2 lg:-translate-x-1/2"
           />
+          <span
+            aria-hidden
+            className="absolute left-0 top-2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_0_3px_rgba(37,99,235,0.12)] lg:left-1/2"
+          />
           <ol>
           {experiences.map((exp, index) => {
             const NodeIcon = exp.type === 'work' ? Briefcase : GraduationCap;
@@ -153,13 +198,13 @@ export default function Experience() {
                 as="li"
                 key={index}
                 delay={index * 60}
-                className="relative pb-10 pl-8 last:pb-0 sm:pl-10 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:pb-14 lg:pl-0"
+                className="group/row relative pb-10 pl-8 last:pb-0 sm:pl-10 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:pb-14 lg:pl-0"
               >
                 <span
-                  className={`absolute -left-[15px] top-0 z-10 flex h-7 w-7 items-center justify-center rounded-full border bg-white transition-colors duration-300 lg:left-1/2 lg:top-8 lg:-translate-x-1/2 ${
+                  className={`absolute -left-[15px] top-0 z-10 flex h-7 w-7 items-center justify-center rounded-full border bg-white shadow-sm transition-all duration-300 group-hover/row:scale-110 lg:left-1/2 lg:top-8 lg:-translate-x-1/2 ${
                     isCurrent
                       ? 'border-accent/40 text-accent shadow-[0_0_0_4px_rgba(37,99,235,0.08)]'
-                      : 'border-stone-200 text-ink'
+                      : 'border-stone-200 text-ink group-hover/row:border-accent/40 group-hover/row:text-accent'
                   }`}
                 >
                   {isCurrent && (
@@ -170,24 +215,39 @@ export default function Experience() {
 
                 <span
                   aria-hidden
-                  className={`absolute top-8 hidden h-px w-6 bg-stone-300 lg:block ${
-                    isLeft ? 'right-1/2 mr-[14px]' : 'left-1/2 ml-[14px]'
-                  }`}
+                  className="absolute top-[2.875rem] right-1/2 mr-[14px] hidden h-px w-6 -translate-y-1/2 bg-stone-300 transition-all duration-300 group-hover/row:w-8 group-hover/row:bg-accent/50 lg:block"
+                />
+                <span
+                  aria-hidden
+                  className="absolute top-[2.875rem] left-1/2 ml-[14px] hidden h-px w-6 -translate-y-1/2 bg-stone-300 transition-all duration-300 group-hover/row:w-8 group-hover/row:bg-accent/50 lg:block"
                 />
 
+                <div
+                  className={`hidden items-start pt-1 lg:flex ${
+                    isLeft ? 'justify-start lg:col-start-2' : 'justify-end lg:col-start-1'
+                  } lg:row-start-1`}
+                >
+                  <OrganizationLogo logo={exp.logo} size="large" />
+                </div>
+
                 <article
-                  className={`card card-hover card-accent sheen group p-6 ${
+                  className={`card card-hover card-accent sheen group p-6 lg:row-start-1 ${
                     isLeft ? 'lg:col-start-1' : 'lg:col-start-2'
                   }`}
                 >
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-base font-semibold leading-snug tracking-tight text-ink sm:text-lg">
-                        {exp.title}
-                      </h3>
-                      <p className="mt-1 text-sm font-medium text-ink-soft">
-                        {renderEmojiText(exp.company)}
-                      </p>
+                    <div className="flex flex-1 items-start gap-3">
+                      <div className="mt-0.5 shrink-0 lg:hidden">
+                        <OrganizationLogo logo={exp.logo} size="small" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-base font-semibold leading-snug tracking-tight text-ink sm:text-lg">
+                          {exp.title}
+                        </h3>
+                        <p className="mt-1 text-sm font-medium text-ink-soft">
+                          {renderEmojiText(exp.company)}
+                        </p>
+                      </div>
                     </div>
                     <span
                       className={`inline-flex w-fit items-center rounded-full px-3 py-1 font-mono text-xs font-medium transition-colors duration-300 ${
@@ -241,6 +301,34 @@ export default function Experience() {
         </div>
       </div>
     </section>
+  );
+}
+
+function OrganizationLogo({
+  logo,
+  size,
+}: {
+  logo: { name: string; initials: string; src?: string; color: string };
+  size: 'small' | 'large';
+}) {
+  const boxSize = size === 'large' ? 'h-24 w-24 text-xl' : 'h-11 w-11 text-xs';
+
+  return (
+    <div
+      className={`${boxSize} flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-stone-200 bg-white p-2 shadow-soft ring-4 ring-white/70 transition-transform duration-300 group-hover/row:scale-105`}
+      title={logo.name}
+      aria-label={logo.name}
+    >
+      {logo.src ? (
+        <img src={logo.src} alt={logo.name} className="h-full w-full object-contain" />
+      ) : (
+        <span
+          className={`flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br ${logo.color} font-mono font-bold text-white`}
+        >
+          {logo.initials}
+        </span>
+      )}
+    </div>
   );
 }
 
