@@ -182,7 +182,7 @@ export default function Experience() {
         <div className="relative mx-auto mt-16 max-w-5xl">
           <span
             aria-hidden
-            className="absolute left-0 top-2 bottom-6 w-px bg-gradient-to-b from-accent via-stone-300 to-transparent lg:left-1/2 lg:-translate-x-1/2"
+            className="absolute left-0 top-2 bottom-6 w-px bg-gradient-to-b from-accent via-stone-300 to-stone-200/30 lg:left-1/2 lg:-translate-x-1/2"
           />
           <span
             aria-hidden
