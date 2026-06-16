@@ -42,7 +42,7 @@ export default function Hero() {
                 <div className="relative h-16 w-16 overflow-hidden rounded-full border border-stone-200 bg-white shadow-soft ring-1 ring-stone-900/5 sm:h-20 sm:w-20">
                   <img
                     src="/c.jpg"
-                    alt="Camilo Otalora"
+                    alt="Camilo Otálora"
                     className="h-full w-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -60,7 +60,7 @@ export default function Hero() {
 
               <h1 className="text-balance text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl xl:text-7xl">
                 <span className="text-gradient">Camilo</span>{' '}
-                <span className="text-gradient-accent">Otalora</span>
+                <span className="text-gradient-accent">Otálora</span>
               </h1>
             </div>
 
@@ -137,13 +137,13 @@ export default function Hero() {
                   <Line n={2}>
                     {'  '}
                     <Prop>name</Prop>
-                    <P>:</P> <S>"Camilo Otalora"</S>
+                    <P>:</P> <S>"Camilo Otálora Rivadeneira"</S>
                     <P>,</P>
                   </Line>
                   <Line n={3}>
                     {'  '}
                     <Prop>role</Prop>
-                    <P>:</P> <S>"Systems Engineer"</S>
+                    <P>:</P> <S>"Data, Cloud &amp; AI Specialist"</S>
                     <P>,</P>
                   </Line>
                   <Line n={4}>
@@ -157,13 +157,13 @@ export default function Hero() {
                   <Line n={5}>
                     {'         '}
                     <S>"Elastic"</S>
-                    <P>,</P> <S>"GCP"</S>
+                    <P>,</P> <S>"Azure"</S>
                     <P>],</P>
                   </Line>
                   <Line n={6}>
                     {'  '}
                     <Prop>focus</Prop>
-                    <P>:</P> <S>"Data &amp; Full-Stack"</S>
+                    <P>:</P> <S>"Automation &amp; Consulting"</S>
                     <P>,</P>
                   </Line>
                   <Line n={7}>

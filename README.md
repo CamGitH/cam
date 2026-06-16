@@ -1,6 +1,6 @@
-# Camilo Otalora — Portfolio
+# Camilo Otálora Rivadeneira — Portfolio
 
-A single-page personal portfolio site for Camilo Otalora (Systems & Computing Engineer).
+A single-page personal portfolio site for Camilo Otálora Rivadeneira (Systems & Computing Engineer).
 Bilingual (English / Spanish) with sections for Hero, About, Experience, Skills,
 Certificates, and Contact.
 

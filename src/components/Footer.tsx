@@ -75,7 +75,7 @@ export default function Footer() {
             <span className="flex h-6 w-6 items-center justify-center rounded bg-ink font-mono text-[10px] font-bold text-white">
               CO
             </span>
-            <span>Camilo Otalora</span>
+            <span>Camilo Otálora</span>
           </div>
         </div>
       </div>

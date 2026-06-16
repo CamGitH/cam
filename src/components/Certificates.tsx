@@ -102,20 +102,8 @@ const certificates = [
   },
   {
     icon: Sparkles,
-    title: 'Intro to Duet AI in Google Workspace',
-    issuer: 'Google',
-    date: '2024',
-    description: 'Training focused on Duet AI capabilities within Google Workspace to enhance productivity and collaboration.',
-    skills: ['Duet AI', 'Google Workspace', 'Productivity'],
-    type: 'training',
-    gradient: 'from-emerald-400 via-green-500 to-teal-600',
-    borderColor: 'border-emerald-400',
-    glowColor: 'shadow-emerald-500/50'
-  },
-  {
-    icon: Sparkles,
     title: 'Intro to Large Language Models',
-    issuer: 'AI Fundamentals',
+    issuer: 'Google Cloud',
     date: '2024',
     description: 'Foundational course covering large language model concepts, capabilities, and applications.',
     skills: ['LLMs', 'AI Fundamentals', 'NLP'],
@@ -125,20 +113,8 @@ const certificates = [
     glowColor: 'shadow-teal-500/50'
   },
   {
-    icon: Shield,
-    title: 'Intro to Responsible AI',
-    issuer: 'AI Ethics & Governance',
-    date: '2024',
-    description: 'Course focused on ethical AI development, fairness, transparency, and responsible deployment.',
-    skills: ['Responsible AI', 'Ethics', 'Governance'],
-    type: 'training',
-    gradient: 'from-green-400 via-emerald-500 to-teal-600',
-    borderColor: 'border-green-400',
-    glowColor: 'shadow-green-500/50'
-  },
-  {
     icon: Medal,
-    title: 'Applying AI Principles with Google Cloud',
+    title: 'Google Cloud AI Principles',
     issuer: 'Google Cloud',
     date: '2024',
     description: 'Training on applying responsible AI principles within Google Cloud environments.',

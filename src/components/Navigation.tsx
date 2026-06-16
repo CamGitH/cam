@@ -75,7 +75,7 @@ export default function Navigation() {
               CO
             </span>
             <span className="hidden text-sm font-semibold tracking-tight text-ink sm:block">
-              Camilo Otalora
+              Camilo Otálora
             </span>
           </button>
 

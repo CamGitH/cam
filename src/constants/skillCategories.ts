@@ -50,10 +50,10 @@ export const skillCategories: SkillCategory[] = [
     borderColor: 'border-orange-400/50',
     glowColor: 'shadow-orange-500/20',
     skills: [
-      { name: 'Relational Databases', proficiency: 5 },
-      { name: 'NoSQL Databases', proficiency: 5 },
-      { name: 'Elasticsearch', proficiency: 5 },
-      { name: 'Performance Tuning', proficiency: 5 }
+      { name: 'SQL & NoSQL', proficiency: 5 },
+      { name: 'Elasticsearch / ELK', proficiency: 5 },
+      { name: 'KNN Search', proficiency: 4 },
+      { name: 'Cross-reference Search', proficiency: 4 }
     ]
   },
   {
@@ -73,32 +73,33 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     icon: Server,
-    title: 'Data Engineering',
-    className: 'Pipeline Architect',
+    title: 'AI & Integrations',
+    className: 'Solution Builder',
     level: 90,
     color: 'from-pink-500 to-rose-600',
     borderColor: 'border-pink-400/50',
     glowColor: 'shadow-pink-500/20',
     skills: [
-      { name: 'ETL / ELT Pipelines', proficiency: 5 },
-      { name: 'Data Modeling', proficiency: 5 },
+      { name: 'NLP / AI Integration', proficiency: 5 },
+      { name: 'LLMs', proficiency: 4 },
+      { name: 'Vertex AI', proficiency: 4 },
       { name: 'APIs & Integrations', proficiency: 5 },
-      { name: 'Data Quality', proficiency: 4 }
+      { name: 'QA Automation', proficiency: 4 }
     ]
   },
   {
     icon: GitBranch,
-    title: 'DevOps & Infrastructure',
-    className: 'System Operator',
+    title: 'Mobile & Cloud Apps',
+    className: 'App Developer',
     level: 88,
     color: 'from-amber-500 to-yellow-600',
     borderColor: 'border-amber-400/50',
     glowColor: 'shadow-amber-500/20',
     skills: [
-      { name: 'Git', proficiency: 5 },
-      { name: 'Docker', proficiency: 4 },
-      { name: 'CI / CD', proficiency: 4 },
-      { name: 'Monitoring & Logging', proficiency: 4 }
+      { name: 'Android Studio', proficiency: 4 },
+      { name: 'Firebase', proficiency: 4 },
+      { name: 'Cloud Firestore', proficiency: 4 },
+      { name: 'Payment APIs', proficiency: 4 }
     ]
   },
   {
@@ -110,10 +111,10 @@ export const skillCategories: SkillCategory[] = [
     borderColor: 'border-cyan-400/50',
     glowColor: 'shadow-cyan-500/20',
     skills: [
-      { name: 'Google Cloud Platform', proficiency: 5 },
-      { name: 'Azure', proficiency: 4 },
-      { name: 'IAM & Security Basics', proficiency: 4 },
-      { name: 'Cloud Architecture', proficiency: 4 }
+      { name: 'Google Cloud', proficiency: 5 },
+      { name: 'Microsoft Azure', proficiency: 4 },
+      { name: 'Cloud Services', proficiency: 4 },
+      { name: 'Cloud Migrations', proficiency: 4 }
     ]
   },
   {
@@ -125,10 +126,10 @@ export const skillCategories: SkillCategory[] = [
     borderColor: 'border-teal-400/50',
     glowColor: 'shadow-teal-500/20',
     skills: [
-      { name: 'Agile (Scrum / Kanban)', proficiency: 5 },
+      { name: 'Scrum / Agile', proficiency: 5 },
       { name: 'Project Coordination', proficiency: 5 },
       { name: 'Stakeholder Communication', proficiency: 5 },
-      { name: 'Documentation', proficiency: 4 }
+      { name: 'Client Delivery', proficiency: 5 }
     ]
   }
 ];
@@ -145,20 +146,25 @@ skillCategories.forEach(category => {
     });
 
     // Add common variations
-    if (skill.name === 'Google Cloud Platform') {
+    if (skill.name === 'Google Cloud') {
       skillMap.set('google cloud', { icon: category.icon, color: category.color });
       skillMap.set('gcp', { icon: category.icon, color: category.color });
     }
-    if (skill.name === 'Relational Databases') {
+    if (skill.name === 'Microsoft Azure') {
+      skillMap.set('azure', { icon: category.icon, color: category.color });
+    }
+    if (skill.name === 'SQL & NoSQL') {
+      skillMap.set('sql', { icon: category.icon, color: category.color });
+      skillMap.set('nosql', { icon: category.icon, color: category.color });
       skillMap.set('database management', { icon: category.icon, color: category.color });
     }
-    if (skill.name === 'Agile (Scrum / Kanban)') {
+    if (skill.name === 'Elasticsearch / ELK') {
+      skillMap.set('elasticsearch', { icon: category.icon, color: category.color });
+      skillMap.set('elk', { icon: category.icon, color: category.color });
+    }
+    if (skill.name === 'Scrum / Agile') {
       skillMap.set('agile', { icon: category.icon, color: category.color });
       skillMap.set('scrum', { icon: category.icon, color: category.color });
-    }
-    if (skill.name === 'ETL / ELT Pipelines') {
-      skillMap.set('etl', { icon: category.icon, color: category.color });
-      skillMap.set('elt', { icon: category.icon, color: category.color });
     }
   });
 });
