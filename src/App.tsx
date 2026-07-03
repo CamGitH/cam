@@ -13,7 +13,7 @@ function App() {
   const { currentView } = useView();
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50 dark:bg-zinc-950">
       <Navigation />
 
       <main>

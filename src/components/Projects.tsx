@@ -102,21 +102,11 @@ const projects: Project[] = [
   },
   {
     id: 'placeholder-two',
-    name: 'Project Two',
+    name: 'Next Project',
     descriptionKey: 'projects.placeholder.description',
     platform: 'Web app',
     platformIcon: Globe,
     tags: ['React', 'TypeScript'],
-    ctaKey: 'projects.viewProject',
-    comingSoon: true,
-  },
-  {
-    id: 'placeholder-three',
-    name: 'Project Three',
-    descriptionKey: 'projects.placeholder.description',
-    platform: 'Mobile app',
-    platformIcon: Smartphone,
-    tags: ['Mobile', 'Cross-platform'],
     ctaKey: 'projects.viewProject',
     comingSoon: true,
   },
@@ -129,8 +119,8 @@ function BudgetMockup() {
   return (
     <div className="mx-auto w-full max-w-[19rem]">
       <div className="rounded-[2rem] border border-white/10 bg-zinc-900 p-3 shadow-[0_30px_80px_-35px_rgba(255,255,255,0.35)]">
-        <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-50 text-ink">
-          <div className="bg-ink px-5 pb-6 pt-5 text-white">
+        <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-50 text-zinc-900">
+          <div className="bg-zinc-900 px-5 pb-6 pt-5 text-white">
             <div className="mx-auto mb-5 h-1 w-14 rounded-full bg-white/20" />
             <div className="flex items-center justify-between">
               <div>
@@ -148,13 +138,13 @@ function BudgetMockup() {
           <div className="space-y-4 p-5">
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-xl border border-stone-200 bg-white p-3">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-ink-muted">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
                   {t('projects.mockup.income')}
                 </p>
                 <p className="mt-1 text-sm font-semibold text-emerald-600">+$3,200</p>
               </div>
               <div className="rounded-xl border border-stone-200 bg-white p-3">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-ink-muted">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
                   {t('projects.mockup.expenses')}
                 </p>
                 <p className="mt-1 text-sm font-semibold text-rose-600">-$720</p>
@@ -170,11 +160,11 @@ function BudgetMockup() {
                 <span className="h-2.5 w-2.5 rounded-full bg-accent" />
                 <div className="h-2 flex-1 rounded-full bg-stone-200">
                   <div
-                    className="h-full rounded-full bg-ink"
+                    className="h-full rounded-full bg-zinc-900"
                     style={{ width: `${76 - index * 18}%` }}
                   />
                 </div>
-                <span className="w-16 text-right text-xs font-medium text-ink-muted">
+                <span className="w-16 text-right text-xs font-medium text-zinc-500">
                   {item}
                 </span>
               </div>
@@ -318,7 +308,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/cta inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-[0_12px_30px_-12px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone-100"
+              className="group/cta inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-zinc-900 shadow-[0_12px_30px_-12px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone-100"
             >
               {t(project.ctaKey)}
               <ArrowUpRight
@@ -383,7 +373,7 @@ export default function Projects() {
   const { t } = useLanguage();
 
   return (
-    <section id="projects" className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section id="projects" className="relative overflow-hidden bg-white py-24 dark:bg-zinc-950 sm:py-32">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,black,transparent)]" />
 
       <div className="container-page relative z-10">

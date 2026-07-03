@@ -15,7 +15,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-stone-200 bg-stone-50">
+    <footer className="relative overflow-hidden border-t border-stone-200 bg-stone-50 dark:border-white/10 dark:bg-zinc-950">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-50 [mask-image:radial-gradient(ellipse_60%_80%_at_50%_0%,black,transparent)]" />
 
       <div className="container-page relative z-10 py-16">
@@ -27,7 +27,7 @@ export default function Footer() {
             </p>
             <button
               onClick={goToContact}
-              className="group mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-ink hover:shadow-glow"
+              className="btn-primary group mt-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow"
             >
               {t('hero.contact')}
               <ArrowUpRight
@@ -63,20 +63,21 @@ export default function Footer() {
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               aria-label="Back to top"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-200 bg-white text-ink-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-ink hover:text-ink"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-200 bg-white text-ink-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-ink hover:text-ink dark:border-white/15 dark:bg-white/5 dark:hover:border-white/50"
             >
               <ArrowUp size={16} />
             </button>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-3 border-t border-stone-200 pt-6 text-xs text-ink-muted sm:flex-row sm:justify-between">
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-stone-200 pt-6 text-xs text-ink-muted dark:border-white/10 sm:flex-row sm:justify-between">
           <div className="flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded bg-ink font-mono text-[10px] font-bold text-white">
+            <span className="brand-chip flex h-6 w-6 items-center justify-center rounded font-mono text-[10px] font-bold">
               CO
             </span>
             <span>Camilo Otálora</span>
           </div>
+          <span className="font-mono">© {new Date().getFullYear()}</span>
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { Brain, Code, Zap } from 'lucide-react';
+import { BarChart3, Brain, Handshake } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionHeading from './SectionHeading';
 import Reveal from './Reveal';
@@ -8,27 +8,24 @@ export default function About() {
 
   const highlights = [
     {
+      icon: BarChart3,
+      title: t('about.highlight1.title'),
+      description: t('about.highlight1.description'),
+    },
+    {
       icon: Brain,
-      title: 'Problem Solver',
-      description:
-        'Analytical thinking meets creative solutions. I thrive on turning complex challenges into elegant, efficient code.',
+      title: t('about.highlight2.title'),
+      description: t('about.highlight2.description'),
     },
     {
-      icon: Code,
-      title: 'Full Stack Developer',
-      description:
-        'From database architecture to pixel-perfect UIs, I build end-to-end solutions with modern technologies.',
-    },
-    {
-      icon: Zap,
-      title: 'Performance Focused',
-      description:
-        'Optimization is in my DNA. I create fast, scalable applications that handle millions of operations seamlessly.',
+      icon: Handshake,
+      title: t('about.highlight3.title'),
+      description: t('about.highlight3.description'),
     },
   ];
 
   return (
-    <section id="about" className="relative border-t border-stone-200/70 bg-white py-24 sm:py-32">
+    <section id="about" className="relative border-t border-stone-200/70 bg-white py-24 dark:border-white/10 dark:bg-zinc-900/30 sm:py-32">
       <div className="container-page">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
@@ -60,10 +57,10 @@ export default function About() {
               <Reveal key={item.title} delay={index * 100}>
                 <article className="card card-hover card-accent sheen group h-full p-7">
                   <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent dark:border-white/10 dark:bg-white/5">
                       <Icon size={22} strokeWidth={1.75} />
                     </div>
-                    <span className="font-mono text-xs text-stone-300 transition-colors duration-300 group-hover:text-accent/60">
+                    <span className="font-mono text-xs text-stone-300 transition-colors duration-300 group-hover:text-accent/60 dark:text-zinc-600">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                   </div>

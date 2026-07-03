@@ -7,28 +7,27 @@ export default function Skills() {
   const { t } = useLanguage();
 
   const totalSkills = skillCategories.reduce((sum, c) => sum + c.skills.length, 0);
-  const avgLevel = Math.round(
-    skillCategories.reduce((sum, c) => sum + c.level, 0) / skillCategories.length
-  );
+  // Professional experience starts at the first role on the timeline (P&G, 2020).
+  const yearsOfExperience = new Date().getFullYear() - 2020;
 
   const proficiencyDots = (level: number) =>
     Array.from({ length: 5 }, (_, i) => (
       <span
         key={i}
         className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${
-          i < level ? 'bg-ink group-hover/row:bg-accent' : 'bg-stone-200'
+          i < level ? 'bg-ink group-hover/row:bg-accent' : 'bg-stone-200 dark:bg-white/15'
         }`}
       />
     ));
 
   const stats = [
-    { value: skillCategories.length, label: 'Focus areas' },
-    { value: totalSkills, label: 'Skills' },
-    { value: `${avgLevel}%`, label: 'Avg. level' },
+    { value: skillCategories.length, label: t('skills.stats.areas') },
+    { value: totalSkills, label: t('skills.stats.skills') },
+    { value: `${yearsOfExperience}+`, label: t('skills.stats.years') },
   ];
 
   return (
-    <section className="relative min-h-screen bg-stone-50 pb-24 pt-32">
+    <section className="relative min-h-screen bg-stone-50 pb-24 pt-32 dark:bg-zinc-950">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-grid mask-fade-b" />
 
       <div className="container-page relative z-10">
@@ -38,7 +37,7 @@ export default function Skills() {
           description={t('skills.subtitle')}
         />
 
-        <Reveal className="mx-auto mt-10 flex max-w-md items-stretch justify-center divide-x divide-stone-200 rounded-2xl border border-stone-200 bg-white shadow-soft">
+        <Reveal className="mx-auto mt-10 flex max-w-md items-stretch justify-center divide-x divide-stone-200 rounded-2xl border border-stone-200 bg-white shadow-soft dark:divide-white/10 dark:border-white/10 dark:bg-zinc-900">
           {stats.map((s) => (
             <div key={s.label} className="flex-1 px-5 py-4 text-center">
               <div className="text-2xl font-bold tracking-tight text-ink">{s.value}</div>
@@ -76,10 +75,10 @@ export default function Skills() {
 
                   <div className="mt-6">
                     <div className="mb-1.5 flex items-center justify-between text-xs text-ink-muted">
-                      <span className="font-medium">Experience Level</span>
+                      <span className="font-medium">{t('skills.level')}</span>
                       <span className="font-mono font-semibold text-ink">{category.level}%</span>
                     </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-stone-100">
+                    <div className="h-1.5 overflow-hidden rounded-full bg-stone-100 dark:bg-white/10">
                       <div
                         className={`h-full rounded-full bg-gradient-to-r ${category.color} transition-[width] duration-700 ease-out`}
                         style={{ width: `${category.level}%` }}
@@ -91,7 +90,7 @@ export default function Skills() {
                     {category.skills.map((skill) => (
                       <li
                         key={skill.name}
-                        className="group/row -mx-2 flex items-center justify-between gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200 hover:bg-stone-50"
+                        className="group/row -mx-2 flex items-center justify-between gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200 hover:bg-stone-50 dark:hover:bg-white/5"
                       >
                         <span className="text-sm text-ink-soft transition-colors duration-200 group-hover/row:text-ink">
                           {skill.name}

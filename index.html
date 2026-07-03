@@ -9,7 +9,22 @@
       name="keywords"
       content="Camilo Otálora, Systems and Computing Engineer, Data Analytics, Cloud Services, AI Integration, Power BI, Elasticsearch, Python, SQL, Azure, Google Cloud"
     />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafaf9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#09090b" />
+    <script>
+      // Apply the saved (or OS-preferred) theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var stored = localStorage.getItem('preferred-theme');
+          var dark =
+            stored === 'dark' ||
+            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {
+          /* default to light */
+        }
+      })();
+    </script>
     <meta
       name="description"
       content="Camilo Otálora Rivadeneira — Systems & Computing Engineer specializing in data analytics, database management, automation, cloud services, and AI integration."
@@ -83,7 +98,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>Camilo</title>
+    <title>Camilo Otálora — Data, Cloud & AI Engineer</title>
   </head>
   <body>
     <div id="root"></div>

@@ -8,7 +8,7 @@ export default function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="border-t border-stone-200/70 bg-white py-24 sm:py-32">
+    <section id="contact" className="border-t border-stone-200/70 bg-white py-24 dark:border-white/10 dark:bg-zinc-900/30 sm:py-32">
       <div className="container-page">
         <SectionHeading
           index={3}
@@ -25,7 +25,7 @@ export default function Contact() {
               className="card card-hover card-accent sheen group flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7"
             >
               <div className="flex items-center gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent dark:border-white/10 dark:bg-white/5">
                   <Mail size={22} strokeWidth={1.75} />
                 </span>
                 <div>
@@ -35,7 +35,7 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
-              <span className="inline-flex items-center gap-2 self-start rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-accent transition-colors duration-300 group-hover:border-accent/40 sm:self-auto">
+              <span className="inline-flex items-center gap-2 self-start rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-accent transition-colors duration-300 group-hover:border-accent/40 dark:border-white/10 dark:bg-white/5 dark:text-accent-soft sm:self-auto">
                 <span className="break-all">{PROFILE_LINKS.email}</span>
                 <ArrowUpRight
                   size={15}
@@ -52,14 +52,14 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="card card-hover card-accent sheen group flex h-full flex-col p-6"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent dark:border-white/10 dark:bg-white/5">
                 <Linkedin size={20} strokeWidth={1.75} />
               </span>
               <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">LinkedIn</h3>
               <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-muted">
                 {t('contact.linkedinCard')}
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent">
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent dark:text-accent-soft">
                 {t('contact.viewProfile')}
                 <ArrowUpRight
                   size={14}
@@ -74,14 +74,14 @@ export default function Contact() {
               onClick={openCV}
               className="card card-hover card-accent sheen group flex h-full w-full flex-col p-6 text-left"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-stone-200 bg-stone-50 text-ink transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent dark:border-white/10 dark:bg-white/5">
                 <Download size={20} strokeWidth={1.75} />
               </span>
               <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">CV</h3>
               <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-muted">
                 {t('contact.cvCard')}
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent">
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent dark:text-accent-soft">
                 {t('contact.downloadCV')}
                 <ArrowUpRight
                   size={14}

@@ -143,9 +143,21 @@ export default function Certificates() {
 
   const getCredentialTypeLabel = (type: string) => {
     const typeConfig = {
-      certification: { label: 'CERTIFICATION', color: 'text-amber-600', dot: 'bg-amber-500' },
-      accreditation: { label: 'ACCREDITATION', color: 'text-blue-600', dot: 'bg-blue-500' },
-      training: { label: 'COURSE / TRAINING', color: 'text-emerald-600', dot: 'bg-emerald-500' },
+      certification: {
+        label: t('certificates.type.certification'),
+        color: 'text-amber-600 dark:text-amber-400',
+        dot: 'bg-amber-500',
+      },
+      accreditation: {
+        label: t('certificates.type.accreditation'),
+        color: 'text-blue-600 dark:text-blue-400',
+        dot: 'bg-blue-500',
+      },
+      training: {
+        label: t('certificates.type.training'),
+        color: 'text-emerald-600 dark:text-emerald-400',
+        dot: 'bg-emerald-500',
+      },
     };
     return typeConfig[type as keyof typeof typeConfig] || typeConfig.training;
   };
@@ -156,7 +168,7 @@ export default function Certificates() {
   }));
 
   return (
-    <section className="relative min-h-screen bg-stone-50 pb-24 pt-32">
+    <section className="relative min-h-screen bg-stone-50 pb-24 pt-32 dark:bg-zinc-950">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-grid mask-fade-b" />
 
       <div className="container-page relative z-10">
@@ -170,7 +182,7 @@ export default function Certificates() {
           {legend.map((item) => (
             <span
               key={item.label}
-              className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-ink-soft shadow-soft"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-ink-soft shadow-soft dark:border-white/10 dark:bg-zinc-900"
             >
               <span className={`h-1.5 w-1.5 rounded-full ${item.dot}`} />
               <span className="capitalize">{item.label.toLowerCase()}</span>
@@ -207,7 +219,7 @@ export default function Certificates() {
 
                     <div className="mt-1.5 flex items-center gap-2 text-xs text-ink-muted">
                       <span className="font-medium text-ink-soft">{cert.issuer}</span>
-                      <span className="h-1 w-1 rounded-full bg-stone-300" />
+                      <span className="h-1 w-1 rounded-full bg-stone-300 dark:bg-white/20" />
                       <span className="font-mono">{cert.date}</span>
                     </div>
 
@@ -215,11 +227,11 @@ export default function Certificates() {
                       {cert.description}
                     </p>
 
-                    <div className="mt-5 flex flex-wrap gap-1.5 border-t border-stone-100 pt-4">
+                    <div className="mt-5 flex flex-wrap gap-1.5 border-t border-stone-100 pt-4 dark:border-white/10">
                       {cert.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-soft"
+                          className="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-soft dark:border-white/10 dark:bg-white/5"
                         >
                           {skill}
                         </span>

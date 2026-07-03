@@ -46,7 +46,6 @@ export default function Experience() {
         { label: 'Power BI', type: 'certificate' as const },
         { label: 'Python', type: 'skill' as const },
         { label: 'SQL', type: 'skill' as const },
-        { label: 'Power BI', type: 'skill' as const },
         { label: 'Power Automate', type: 'skill' as const },
         { label: 'Database Management', type: 'skill' as const },
         { label: 'Cloud Services', type: 'skill' as const },
@@ -160,7 +159,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="bg-stone-50 py-24 sm:py-32">
+    <section id="experience" className="bg-stone-50 py-24 dark:bg-zinc-950 sm:py-32">
       <div className="container-page">
         <SectionHeading
           index={2}
@@ -172,7 +171,7 @@ export default function Experience() {
         <Reveal className="mt-10 flex justify-center">
           <button
             onClick={openCV}
-            className="group inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-ink"
+            className="group inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-ink dark:border-white/15 dark:bg-white/5 dark:hover:border-white/50"
           >
             <Download size={16} />
             {t('experience.downloadCV')}
@@ -182,7 +181,7 @@ export default function Experience() {
         <div className="relative mx-auto mt-16 max-w-5xl">
           <span
             aria-hidden
-            className="absolute left-0 top-2 bottom-6 w-px bg-gradient-to-b from-accent via-stone-300 to-stone-200/30 lg:left-1/2 lg:-translate-x-1/2"
+            className="absolute left-0 top-2 bottom-6 w-px bg-gradient-to-b from-accent via-stone-300 to-stone-200/30 dark:via-white/20 dark:to-white/5 lg:left-1/2 lg:-translate-x-1/2"
           />
           <span
             aria-hidden
@@ -201,10 +200,10 @@ export default function Experience() {
                 className="group/row relative pb-10 pl-8 last:pb-0 sm:pl-10 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:pb-14 lg:pl-0"
               >
                 <span
-                  className={`absolute -left-[15px] top-0 z-10 flex h-7 w-7 items-center justify-center rounded-full border bg-white shadow-sm transition-all duration-300 group-hover/row:scale-110 lg:left-1/2 lg:top-8 lg:-translate-x-1/2 ${
+                  className={`absolute -left-[15px] top-0 z-10 flex h-7 w-7 items-center justify-center rounded-full border bg-white shadow-sm transition-all duration-300 group-hover/row:scale-110 dark:bg-zinc-900 lg:left-1/2 lg:top-8 lg:-translate-x-1/2 ${
                     isCurrent
                       ? 'border-accent/40 text-accent shadow-[0_0_0_4px_rgba(37,99,235,0.08)]'
-                      : 'border-stone-200 text-ink group-hover/row:border-accent/40 group-hover/row:text-accent'
+                      : 'border-stone-200 text-ink group-hover/row:border-accent/40 group-hover/row:text-accent dark:border-white/15'
                   }`}
                 >
                   {isCurrent && (
@@ -215,11 +214,11 @@ export default function Experience() {
 
                 <span
                   aria-hidden
-                  className="absolute top-[2.875rem] right-1/2 mr-[14px] hidden h-px w-6 -translate-y-1/2 bg-stone-300 transition-all duration-300 group-hover/row:w-8 group-hover/row:bg-accent/50 lg:block"
+                  className="absolute top-[2.875rem] right-1/2 mr-[14px] hidden h-px w-6 -translate-y-1/2 bg-stone-300 transition-all duration-300 group-hover/row:w-8 group-hover/row:bg-accent/50 dark:bg-white/15 lg:block"
                 />
                 <span
                   aria-hidden
-                  className="absolute top-[2.875rem] left-1/2 ml-[14px] hidden h-px w-6 -translate-y-1/2 bg-stone-300 transition-all duration-300 group-hover/row:w-8 group-hover/row:bg-accent/50 lg:block"
+                  className="absolute top-[2.875rem] left-1/2 ml-[14px] hidden h-px w-6 -translate-y-1/2 bg-stone-300 transition-all duration-300 group-hover/row:w-8 group-hover/row:bg-accent/50 dark:bg-white/15 lg:block"
                 />
 
                 <div
@@ -253,7 +252,7 @@ export default function Experience() {
                       className={`inline-flex w-fit items-center rounded-full px-3 py-1 font-mono text-xs font-medium transition-colors duration-300 ${
                         isCurrent
                           ? 'border border-accent/25 bg-accent/10 text-accent'
-                          : 'bg-stone-100 text-ink-soft'
+                          : 'bg-stone-100 text-ink-soft dark:bg-white/10'
                       }`}
                     >
                       {exp.period}
@@ -267,7 +266,7 @@ export default function Experience() {
                   )}
 
                   {exp.tags.length > 0 && (
-                    <div className="mt-5 flex flex-wrap gap-2 border-t border-stone-100 pt-5">
+                    <div className="mt-5 flex flex-wrap gap-2 border-t border-stone-100 pt-5 dark:border-white/10">
                       {exp.tags.map((tag, tagIndex) => {
                         const Icon =
                           tag.type === 'certificate'
@@ -280,7 +279,7 @@ export default function Experience() {
                               setView(tag.type === 'certificate' ? 'certificates' : 'skills')
                             }
                             title={tag.type === 'certificate' ? 'View certificate' : 'View skill'}
-                            className="group inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-soft transition-all duration-200 hover:border-accent/40 hover:bg-accent/5 hover:text-accent"
+                            className="group inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-soft transition-all duration-200 hover:border-accent/40 hover:bg-accent/5 hover:text-accent dark:border-white/10 dark:bg-white/5"
                           >
                             <Icon size={13} strokeWidth={1.9} />
                             {tag.label}
@@ -315,7 +314,7 @@ function OrganizationLogo({
 
   return (
     <div
-      className={`${boxSize} flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-stone-200 bg-white p-2 shadow-soft ring-4 ring-white/70 transition-transform duration-300 group-hover/row:scale-105`}
+      className={`${boxSize} flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-stone-200 bg-white p-2 shadow-soft ring-4 ring-white/70 transition-transform duration-300 group-hover/row:scale-105 dark:border-white/20 dark:ring-white/10`}
       title={logo.name}
       aria-label={logo.name}
     >

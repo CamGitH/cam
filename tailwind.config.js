@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -25,10 +26,12 @@ export default {
         ],
       },
       colors: {
+        // Ink text colors resolve through CSS variables so they invert in dark
+        // mode without per-usage dark: overrides (see :root/.dark in index.css).
         ink: {
-          DEFAULT: '#18181b',
-          soft: '#3f3f46',
-          muted: '#71717a',
+          DEFAULT: 'rgb(var(--ink) / <alpha-value>)',
+          soft: 'rgb(var(--ink-soft) / <alpha-value>)',
+          muted: 'rgb(var(--ink-muted) / <alpha-value>)',
         },
         accent: {
           DEFAULT: '#2563eb',

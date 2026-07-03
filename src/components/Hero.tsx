@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden bg-stone-50 pb-16 pt-28"
+      className="relative flex min-h-screen items-center overflow-hidden bg-stone-50 pb-16 pt-28 dark:bg-zinc-950"
     >
       {/* Layered background */}
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_80%_70%_at_60%_30%,black,transparent)]" />
@@ -24,7 +24,7 @@ export default function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           {/* Left — content */}
           <div>
-            <span className="inline-flex animate-fade-up items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-xs font-medium text-ink-soft shadow-soft backdrop-blur">
+            <span className="inline-flex animate-fade-up items-center gap-2 rounded-full border border-stone-200 bg-white/70 px-3 py-1 text-xs font-medium text-ink-soft shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -39,7 +39,7 @@ export default function Hero() {
             <div className="mt-4 flex animate-fade-up items-center gap-4 [animation-delay:120ms] sm:gap-6">
               <div className="relative shrink-0">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-accent/40 to-sky-400/30 blur-md" />
-                <div className="relative h-16 w-16 overflow-hidden rounded-full border border-stone-200 bg-white shadow-soft ring-1 ring-stone-900/5 sm:h-20 sm:w-20">
+                <div className="relative h-16 w-16 overflow-hidden rounded-full border border-stone-200 bg-white shadow-soft ring-1 ring-stone-900/5 dark:border-white/15 dark:bg-zinc-900 dark:ring-white/10 sm:h-20 sm:w-20">
                   <img
                     src="/c.jpg"
                     alt="Camilo Otálora"
@@ -51,11 +51,11 @@ export default function Hero() {
                       if (fallback) fallback.style.display = 'flex';
                     }}
                   />
-                  <div className="hidden h-full w-full items-center justify-center bg-ink text-xl font-bold text-white">
+                  <div className="hidden h-full w-full items-center justify-center bg-zinc-900 text-xl font-bold text-white">
                     CO
                   </div>
                 </div>
-                <span className="absolute bottom-0.5 right-0.5 h-4 w-4 rounded-full border-2 border-stone-50 bg-emerald-500" />
+                <span className="absolute bottom-0.5 right-0.5 h-4 w-4 rounded-full border-2 border-stone-50 bg-emerald-500 dark:border-zinc-950" />
               </div>
 
               <h1 className="text-balance text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl xl:text-7xl">
@@ -71,7 +71,7 @@ export default function Hero() {
             <div className="mt-8 flex animate-fade-up flex-col gap-3 [animation-delay:280ms] sm:flex-row sm:items-center">
               <button
                 onClick={scrollToContact}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-ink hover:shadow-glow"
+                className="btn-primary group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow"
               >
                 {t('hero.contact')}
                 <ArrowUpRight
@@ -81,7 +81,7 @@ export default function Hero() {
               </button>
               <button
                 onClick={openCV}
-                className="group inline-flex items-center justify-center gap-2 rounded-full border border-stone-300 bg-white/60 px-6 py-3 text-sm font-semibold text-ink backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-ink"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-stone-300 bg-white/60 px-6 py-3 text-sm font-semibold text-ink backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-ink dark:border-white/15 dark:bg-white/5 dark:hover:border-white/50"
               >
                 <Download size={16} className="transition-transform duration-300 group-hover:translate-y-0.5" />
                 {t('experience.downloadCV')}
@@ -112,7 +112,7 @@ export default function Hero() {
           <div className="relative animate-fade-up [animation-delay:240ms]">
             <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-tr from-accent/15 via-transparent to-sky-400/10 blur-2xl" />
             {/* Offset frame for depth */}
-            <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-stone-200/70" />
+            <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-stone-200/70 dark:border-white/10" />
 
             <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-[0_30px_80px_-30px_rgba(24,24,27,0.6)]">
               {/* Window chrome */}
@@ -180,7 +180,7 @@ export default function Hero() {
             </div>
 
             {/* Floating motif chip */}
-            <div className="absolute -bottom-4 -left-4 hidden rounded-xl border border-stone-200 bg-white/90 px-3 py-2 shadow-lift backdrop-blur sm:block">
+            <div className="absolute -bottom-4 -left-4 hidden rounded-xl border border-stone-200 bg-white/90 px-3 py-2 shadow-lift backdrop-blur dark:border-white/10 dark:bg-zinc-900/90 sm:block">
               <span className="font-mono text-xs text-ink-muted">
                 <span className="text-accent">//</span> {t('hero.availability').toLowerCase()}
               </span>
